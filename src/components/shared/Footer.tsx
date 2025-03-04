@@ -18,8 +18,8 @@ const Footer: React.FC = (props) => {
 				clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)",
 			}}
 		>
-			<div className="bg-primary-800 fixed bottom-0 flex h-[400px] w-full max-w-[1182px] flex-col gap-4 p-4 lg:h-[285px] lg:flex-row">
-				<div className="flex flex-col gap-2 lg:h-[243px] lg:w-[375px] lg:p-4">
+			<div className="bg-primary-800 fixed bottom-0 flex h-[400px] w-full flex-col gap-4 p-4 lg:flex-row">
+				<div className="flex flex-col gap-2 lg:p-4">
 					<FullLogoIcon className="lg:mt-6 lg:h-[47px] lg:w-[258px]" />
 					<p className="text-xs leading-5 lg:text-sm lg:leading-[27px] lg:font-normal lg:tracking-normal">
 						شرکت ما با تمرکز بر ارائه خدمات تبلیغاتی و بازاریابی خلاقانه، به
