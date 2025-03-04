@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 import { APP_ROUTES } from "@/constants";
+import EtehadiehIcon from "@/public/Images/Etehadie.svg";
+import NeshanIcon from "@/public/Images/Neshan.svg";
+import NezamMohandesiIcon from "@/public/Images/NezamMohandesi.svg";
 import InstagramIcon from "@/public/Instagram.svg";
 import LinkedinIcon from "@/public/Linkdine.svg";
 import TwitterIcon from "@/public/Twiiter.svg";
@@ -58,6 +61,12 @@ const Footer: React.FC = (props) => {
 					<Link href="#">
 						<WhatsAppIcon />
 					</Link>
+				</div>
+				<div className="flex space-x-[8px]">
+					<NeshanIcon />
+					<EtehadiehIcon />
+					<NezamMohandesiIcon />
+					<EtehadiehIcon />
 				</div>
 			</div>
 		</footer>
