@@ -1,22 +1,41 @@
 "use client";
 
-import { forwardRef, useRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { useAnimate } from "framer-motion";
-import useOnClickOutside from "use-onclickoutside";
+import { stagger, useAnimate } from "framer-motion";
 
-import { APP_NAVIGATION_ITEMS } from "@/constants";
+import { APP_NAVIGATION_ITEMS, APP_ROUTES } from "@/constants";
 import CloseIcon from "@/public/close.svg";
 import LogoIcon from "@/public/logo-full.svg";
 import MenuIcon from "@/public/menu.svg";
+import cn from "@/utils/cn";
 
 const Navbar = forwardRef<HTMLElement>((props, ref) => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const pathname = usePathname();
 	const [scope, animate] = useAnimate();
-	const menuRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (isMenuOpen) {
+			document.body.classList.add("overflow-hidden");
+		} else {
+			document.body.classList.remove("overflow-hidden");
+		}
+	}, [isMenuOpen]);
+
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") handleClose();
+		};
+		document.addEventListener("keydown", handleKeyDown);
+		return () => document.removeEventListener("keydown", handleKeyDown);
+	}, []);
 
 	const handleOpen = async () => {
+		setIsMenuOpen(true);
 		await Promise.all([
 			animate("#backdrop", {
 				display: "block",
@@ -25,9 +44,32 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
 				width: "200px",
 			}),
 		]);
+
+		await animate(
+			"a",
+			{
+				opacity: 1,
+				x: [-20, 0],
+			},
+			{
+				delay: stagger(0.05),
+			},
+		);
 	};
 
 	const handleClose = async () => {
+		setIsMenuOpen(false);
+		await animate(
+			"a",
+			{
+				opacity: 0,
+				x: -20,
+			},
+			{
+				delay: stagger(0.05),
+			},
+		);
+
 		await Promise.all([
 			animate("#backdrop", {
 				display: "none",
@@ -37,8 +79,6 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
 			}),
 		]);
 	};
-
-	useOnClickOutside(menuRef as any, handleClose);
 
 	return (
 		<nav ref={ref} className="fixed top-0 left-0 w-full p-6">
@@ -51,20 +91,39 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
 					id="backdrop"
 				>
 					<div
-						ref={menuRef}
 						className="bg-primary-900 absolute top-0 left-0 flex h-full w-0 flex-col gap-10 pt-[90px]"
 						id="menu"
 					>
 						<button
-							className="absolute top-[30px] right-6"
+							className="absolute top-[30px] right-6 cursor-pointer"
 							onClick={handleClose}
 						>
 							<CloseIcon />
 						</button>
 						{Object.entries(APP_NAVIGATION_ITEMS).map(([path, meta]) => {
+							const isLanding = path === APP_ROUTES.landing;
+							const isActive = isLanding
+								? pathname === "/"
+								: pathname.startsWith(path);
+
 							return (
-								<Link href={path} key={path}>
-									<p className="text-center">{meta.label}</p>
+								<Link
+									href={path}
+									key={path}
+									className="flex items-center justify-center opacity-0"
+									onClick={handleClose}
+								>
+									<p
+										className={cn(
+											"relative w-fit overflow-visible text-nowrap",
+											isActive && "text-secondary-main font-extrabold",
+										)}
+									>
+										{isActive && (
+											<div className="bg-secondary-main/50 absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 blur-[15px]" />
+										)}
+										{meta.label}
+									</p>
 								</Link>
 							);
 						})}

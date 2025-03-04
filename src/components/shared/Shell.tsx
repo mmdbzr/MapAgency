@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 export interface ShellProps {
@@ -25,8 +26,8 @@ const Shell: React.FC<ShellProps> = ({ children }) => {
 			}}
 		>
 			<Navbar ref={navbarRef} />
-
 			{children}
+			<Footer />
 		</main>
 	);
 };
