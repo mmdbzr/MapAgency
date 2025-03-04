@@ -1,7 +1,11 @@
 import Link from "next/link";
 
 import { APP_ROUTES } from "@/constants";
+import InstagramIcon from "@/public/Instagram.svg";
+import LinkedinIcon from "@/public/Linkdine.svg";
+import TwitterIcon from "@/public/Twiiter.svg";
 import FullLogoIcon from "@/public/logo-full.svg";
+import WhatsAppIcon from "@/public/whatsapp.svg";
 
 const Footer: React.FC = (props) => {
 	return (
@@ -39,6 +43,21 @@ const Footer: React.FC = (props) => {
 						<Link href={APP_ROUTES.contactUs}>تماس با ما</Link>
 						<Link href={APP_ROUTES.services}>خدمات</Link>
 					</div>
+				</div>
+				<div className="flex space-x-[4px]">
+					<Link href="#">
+						<TwitterIcon />
+					</Link>
+
+					<Link href="#">
+						<LinkedinIcon />
+					</Link>
+					<Link href="#">
+						<InstagramIcon />
+					</Link>
+					<Link href="#">
+						<WhatsAppIcon />
+					</Link>
 				</div>
 			</div>
 		</footer>
