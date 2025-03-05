@@ -23,9 +23,9 @@ const ContactUsPage = () => {
 				</p>
 			</div>
 			<div className="mt-11 w-full lg:mt-22 lg:grid lg:max-w-[83rem] lg:grid-cols-5">
-				<div className="relative h-[342px] space-y-[16px] p-4 lg:col-span-2 lg:h-full">
+				<div className="relative -z-10 h-[342px] space-y-[16px] p-4 lg:col-span-2 lg:h-full">
 					<Image
-						className="absolute -z-20 h-[342px] w-full lg:h-full lg:w-full"
+						className="absolute -z-30 h-[342px] w-full lg:h-full lg:w-full"
 						src={BgImage}
 						quality={100}
 						width={327}
@@ -33,7 +33,7 @@ const ContactUsPage = () => {
 						alt="bg"
 					/>
 					<div
-						className="absolute -z-10 h-[342px] w-full lg:h-full"
+						className="absolute -z-20 h-[342px] w-full lg:h-full"
 						style={{
 							backgroundImage:
 								"radial-gradient(49.91% 46.58% at 49.91% 53.42%, rgba(16, 53, 77, 0.7) 0%, #10354D 100%)",
@@ -41,7 +41,7 @@ const ContactUsPage = () => {
 						}}
 					/>
 					{/* <div className="absolute -z-10 h-[342px] w-full bg-[radial-gradient(49.91%_46.58%_at_49.91%_53.42%,rgba(16,53,77,0.7)_0%,#10354D_100%)] bg-cover lg:h-full" /> */}
-					<h2 className="font-peyda text-base leading-[23.4px] font-black tracking-normal lg:text-[43px] lg:leading-[55.9px]">
+					<h2 className="font-peyda -z-10 text-base leading-[23.4px] font-black tracking-normal lg:text-[43px] lg:leading-[55.9px]">
 						با ما در تماس باشید!
 					</h2>
 					<p className="font-peyda text-[12px] leading-7 font-normal tracking-normal lg:mt-4 lg:text-[20px]">
