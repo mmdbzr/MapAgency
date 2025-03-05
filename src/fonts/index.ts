@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 
 export const kaaf = localFont({
 	src: "./Kaaf/Kaaf.ttf",
-	variable: "--font-kaaf-local",
+	variable: "--font-kaaf",
 	display: "swap",
 });
 

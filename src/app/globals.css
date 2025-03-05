@@ -3,7 +3,7 @@
 @theme {
 	--background: #10354d;
 	--foreground: #fff;
-	--font-kaaf: var(--font-kaaf-local);
+	--font-kaaf: var(--font-kaaf);
 	--font-peyda: var(--font-peyda-local);
 	--color-primary-800: #144b65;
 	--color-primary-900: #154965;
