@@ -18,8 +18,8 @@ const Footer: React.FC = (props) => {
 				clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)",
 			}}
 		>
-			<div className="bg-primary-800 fixed bottom-0 flex h-[400px] w-full flex-col gap-4 p-4 lg:flex-row">
-				<div className="flex flex-col gap-2 lg:p-4">
+			<div className="bg-primary-800 fixed bottom-0 flex h-[400px] w-full flex-col gap-4 p-4 lg:grid lg:grid-cols-9 lg:justify-center lg:gap-x-6">
+				<div className="flex flex-col gap-2 lg:col-span-3 lg:p-4">
 					<FullLogoIcon className="lg:mt-6 lg:h-[47px] lg:w-[258px]" />
 					<p className="text-xs leading-5 lg:text-sm lg:leading-[27px] lg:font-normal lg:tracking-normal">
 						شرکت ما با تمرکز بر ارائه خدمات تبلیغاتی و بازاریابی خلاقانه، به
@@ -29,8 +29,8 @@ const Footer: React.FC = (props) => {
 						هستیم.
 					</p>
 				</div>
-				<div className="grid grid-cols-3 gap-4">
-					<div className="col-span-2 flex flex-col gap-2 text-xs leading-5 lg:w-[247px] lg:px-4 lg:text-sm lg:leading-[18.2px] lg:font-normal">
+				<div className="grid grid-cols-3 gap-4 lg:col-span-3">
+					<div className="col-span-2 flex flex-col gap-2 text-xs leading-5 lg:px-4 lg:text-sm lg:leading-[18.2px] lg:font-normal">
 						<h2 className="mb-2 text-sm font-bold lg:mt-10 lg:flex lg:text-center lg:text-2xl lg:tracking-normal">
 							تماس با ما
 						</h2>
@@ -41,7 +41,7 @@ const Footer: React.FC = (props) => {
 							1 و 2
 						</p>
 					</div>
-					<div className="flex flex-col gap-2 text-xs leading-5 lg:w-[160px] lg:text-sm lg:leading-[18.2px] lg:font-normal">
+					<div className="col-span-1 flex flex-col gap-2 text-xs leading-5 lg:text-sm lg:leading-[18.2px] lg:font-normal">
 						<h2 className="lg:leading-md mb-2 text-sm font-bold lg:mt-10 lg:flex lg:text-center lg:text-2xl lg:tracking-normal">
 							لینک های مفید
 						</h2>
@@ -51,7 +51,7 @@ const Footer: React.FC = (props) => {
 						<Link href={APP_ROUTES.services}>خدمات</Link>
 					</div>
 				</div>
-				<div className="flex flex-col lg:h-full lg:w-[295px] lg:items-center lg:px-4">
+				<div className="flex flex-col lg:col-span-3 lg:h-full lg:items-center lg:px-4">
 					<p className="leading-md hidden text-2xl font-bold tracking-normal lg:mt-10 lg:flex lg:text-center">
 						شبکه های اجتماعی
 					</p>
