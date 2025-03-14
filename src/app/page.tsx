@@ -1,6 +1,8 @@
 import React from "react";
 
-import AutoSlider from "@/components/AutoSlider";
+import AutoSlider from "@/components/LandingPageComponents/AutoSlider";
+import ScrollBarImageSecivce from "@/components/LandingPageComponents/ScrollBarImageSecivce";
+import RadiusButton from "@/components/RadiusButton";
 import BlueLineIcon from "@/public/Line 3.svg";
 
 const LandingPage = () => {
@@ -36,10 +38,11 @@ const LandingPage = () => {
 						کنید و مطمئن شوید که برند شما در مسیر رشد قرار دارد.
 					</p>
 				</div>
-				<div></div>
-				<div>
-					<BlueLineIcon />
-					<button></button>
+				<ScrollBarImageSecivce className="mt-6" />
+
+				<div className="flex flex-col items-center justify-center">
+					<BlueLineIcon className="mb-2" />
+					<RadiusButton>برای مشاهده تمامی خدمات</RadiusButton>
 				</div>
 			</section>
 		</div>

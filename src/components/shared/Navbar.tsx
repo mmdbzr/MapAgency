@@ -83,7 +83,7 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
 	};
 
 	return (
-		<nav ref={ref} className="fixed top-0 left-0 w-full p-6">
+		<nav ref={ref} className="fixed top-0 left-0 z-50 w-full p-6">
 			<div
 				ref={scope}
 				className="relative flex h-8 w-full items-center justify-center"
