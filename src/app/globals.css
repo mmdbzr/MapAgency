@@ -11,6 +11,10 @@
 	--color-secondary-700: #0a6f94;
 }
 
+.text-outline {
+	-webkit-text-stroke: 1px white;
+	color: "transparent";
+}
 @layer utilities {
 	.glossy-bg {
 		background: rgba(0, 0, 0, 0.2);

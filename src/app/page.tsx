@@ -45,6 +45,22 @@ const LandingPage = () => {
 					<RadiusButton>برای مشاهده تمامی خدمات</RadiusButton>
 				</div>
 			</section>
+			<section className="mt-[70px]">
+				<div className="text-center">
+					{" "}
+					<p className="font-kaaf h-12 text-[24px] leading-[100%] font-extrabold">
+						تبلیغات شما، در
+						<span className="text-secondary-main"> هر نقطه از ایران!</span>
+					</p>
+					<p className="text-[12px] leading-[20px] font-normal">
+						با شبکه‌ای گسترده از بیلبوردها و تبلیغات محیطی در سراسر کشور، پیام
+						برند شما به گوش همه می‌رسد. از کلان‌شهرهای پرتردد تا شهرستان‌های
+						کوچک، ما پوششی کامل ارائه می‌دهیم تا دیده شوید. نگاهی به نقشه
+						استان‌ها بیندازید؛ هر نقطه فرصتی برای ارتباط با مخاطبان جدید است!
+					</p>
+				</div>
+				{/* <MapSlider /> */}
+			</section>
 		</div>
 	);
 };
