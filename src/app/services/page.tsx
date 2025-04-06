@@ -8,8 +8,6 @@ import { motion } from "framer-motion";
 
 import Im from "@/public/Images/I want a picture about Strategy & Consulting_ I don't want it to be written-2.svg?url";
 
-console.log(Im);
-
 // Define the Service interface for TypeScript type safety
 interface Service {
 	title: string;
@@ -17,17 +15,6 @@ interface Service {
 	src: string;
 	textItems: string[];
 }
-
-// Variants for the parent container
-const containerVariants = {
-	hidden: { opacity: 0 }, // Initial state of the container
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.3, // Delay between each child animation
-		},
-	},
-};
 
 // Variants for the child cards
 const childVariants = {
@@ -87,27 +74,25 @@ const Page = () => {
 			<section>
 				{/* Header Section */}
 				<div className="relative mt-[45px] mb-5 flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
-					<p className="font-kaaf absolute text-base font-bold lg:text-[58px] lg:leading-[113.93px]">
+					<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 						Services
 					</p>
-					<p className="font-kaaf absolute top-3 text-center text-base text-[#b7b7b7] lg:top-9 lg:text-[40px] lg:leading-[78.57px]">
+					<p className="font-kaaf absolute top-3 text-center text-base text-[#b7b7b7] lg:top-9 lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 						خدمات
 					</p>
 				</div>
 
-				{/* Services Section with Enter Animation */}
+				{/* Services Section with Scroll Animation */}
 				<section className="flex w-full flex-col items-center justify-center">
-					<motion.div
-						className="grid w-full grid-cols-1 gap-x-8 gap-y-6 lg:gap-y-20"
-						variants={containerVariants} // Parent variants
-						initial="hidden" // Start hidden
-						animate="show" // Animate to show when mounted
-					>
+					<div className="grid w-full grid-cols-1 gap-x-8 gap-y-6 lg:gap-y-20">
 						{services.map((service, index) => (
 							<motion.div
 								key={index}
-								variants={childVariants} // Child variants
-								className="flex lg:pr-4" // Card styling
+								initial="hidden"
+								whileInView="show"
+								viewport={{ once: true }}
+								variants={childVariants}
+								className="flex lg:pr-4"
 							>
 								<div className="font-peyda w-full px-1">
 									<h3 className="text-lg text-[14px] font-black lg:text-[43px]">
@@ -132,7 +117,7 @@ const Page = () => {
 								/>
 							</motion.div>
 						))}
-					</motion.div>
+					</div>
 				</section>
 			</section>
 		</div>
