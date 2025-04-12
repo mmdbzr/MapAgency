@@ -14,11 +14,14 @@
 	"dependencies": {
 		"@bprogress/next": "^3.0.8",
 		"@svgr/core": "^8.1.0",
+		"axios": "^1.8.4",
 		"clsx": "^2.1.1",
 		"framer-motion": "^11.16.1",
 		"next": "15.2.1",
+		"nuqs": "^2.4.1",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"react-fast-marquee": "^1.6.5",
 		"tailwind-merge": "^2.5.2",
 		"use-onclickoutside": "^0.4.1"
 	},

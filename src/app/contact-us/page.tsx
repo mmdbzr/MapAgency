@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +16,40 @@ import PhoneIcon from "@/public/phone.svg";
 import WhatsAppIcon from "@/public/whatsapp.svg";
 
 const ContactUsPage = () => {
+	const [formData, setFormData] = useState({
+		name: "",
+		number: "",
+		email: "",
+		text: "",
+	});
+
+	const handleInputChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+	};
+
+	const handleSubmit = () => {
+		// Format the message
+		const message = ` سلام، من ${formData.name} هستم.
+		شماره تماس: ${formData.number}
+		 ایمیل: ${formData.email}
+		پیام: ${formData.text}`;
+
+		// Encode the message for URL
+		const encodedMessage = encodeURIComponent(message);
+
+		// WhatsApp API URL with phone number and message
+		const whatsappUrl = `https://wa.me/989126211968?text=${encodedMessage}`;
+
+		// Open WhatsApp in a new tab
+		window.open(whatsappUrl, "_blank");
+	};
+
 	return (
 		<div className="mt-[56px] flex flex-col items-center px-6 pb-8">
 			<div className="relative -z-10 mt-[45px] flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
@@ -67,7 +105,8 @@ const ContactUsPage = () => {
 								</p>
 							</div>
 							<p className="mt-2 text-base leading-[17.15px] font-light tracking-normal lg:mt-4 lg:text-[20px]">
-								هران ،دزاشیب ، خیابان کبیری ساختمان دربند ، پلاک 52 ،واحد 1 و 2
+								تهران ،دزاشیب ، خیابان کبیری ساختمان دربند ، پلاک 52 ،واحد 1 و
+								2{" "}
 							</p>
 						</div>
 						<div>
@@ -118,6 +157,8 @@ const ContactUsPage = () => {
 								className="h-[39px] w-full gap-[10px] rounded-tl-[24px] rounded-br-[24px] border p-[12px] lg:h-16 lg:placeholder:text-[14px]"
 								name="name"
 								placeholder="آقای هاتف"
+								value={formData.name}
+								onChange={handleInputChange}
 							/>
 						</div>
 						<div>
@@ -131,6 +172,8 @@ const ContactUsPage = () => {
 								className="h-[39px] w-full gap-[10px] rounded-tl-[24px] rounded-br-[24px] border p-[12px] lg:h-16 lg:placeholder:text-[14px]"
 								name="number"
 								placeholder="0912123456789"
+								value={formData.number}
+								onChange={handleInputChange}
 							/>
 						</div>
 						<div>
@@ -144,6 +187,8 @@ const ContactUsPage = () => {
 								className="h-[39px] w-full gap-[10px] rounded-tl-[24px] rounded-br-[24px] border p-[12px] lg:h-16 lg:placeholder:text-[14px]"
 								name="email"
 								placeholder="Exmp@gmail.com"
+								value={formData.email}
+								onChange={handleInputChange}
 							/>
 						</div>
 						<div>
@@ -157,10 +202,15 @@ const ContactUsPage = () => {
 								className="h-[131px] w-full gap-[10px] rounded-tl-[24px] rounded-br-[24px] border p-[12px] lg:h-32 lg:placeholder:text-[14px]"
 								name="text"
 								placeholder="نیاز شدید به تبلیغات هوشمندانه دارم"
+								value={formData.text}
+								onChange={handleInputChange}
 							/>
 						</div>
 					</div>
-					<button className="bg-secondary-700 flex h-12 w-32 items-center justify-center space-x-[2px] rounded-tl-[24px] rounded-br-[24px] lg:mt-10">
+					<button
+						onClick={handleSubmit}
+						className="bg-secondary-700 flex h-12 w-32 cursor-pointer items-center justify-center space-x-[2px] rounded-tl-[24px] rounded-br-[24px] lg:mt-10"
+					>
 						<p className="text-xs leading-[15.6px] font-black tracking-normal">
 							شروع کنیم
 						</p>

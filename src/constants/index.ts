@@ -5,6 +5,7 @@ export const APP_ROUTES = {
 	projects: "/projects",
 	aboutUs: "/about-us",
 	blog: "/blog",
+	singleBlogPost: (id: number) => `/blog/${id}`,
 } as const;
 
 export const APP_NAVIGATION_ITEMS = {

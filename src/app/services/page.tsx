@@ -7,6 +7,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import Im from "@/public/Images/I want a picture about Strategy & Consulting_ I don't want it to be written-2.svg?url";
+import Image3 from "@/public/Images/Serv2.png";
+import Image2 from "@/public/Images/Serv3.png";
 
 // Define the Service interface for TypeScript type safety
 interface Service {
@@ -47,7 +49,7 @@ const Page = () => {
 			title: "تحلیل و تحقیقات بازار",
 			description:
 				"درک عمیق از نیازهای بازار و رفتار مشتریان، پایه‌ای برای ایجاد استراتژی‌های بازاریابی موفق است. با تحلیل دقیق و تحقیقات جامع، می‌توان مسیر تبلیغات را به سوی بهترین نتایج هدایت کرد.",
-			src: Im,
+			src: Image2,
 			textItems: [
 				"شناسایی مخاطبان هدف",
 				"جمع‌آوری و تفسیر داده‌های بازار",
@@ -59,7 +61,7 @@ const Page = () => {
 			title: "تحلیل و آنالیز گزارشات",
 			description:
 				"تصمیم‌گیری آگاهانه، نیازمند داده‌های قابل اعتماد است. تحلیل و آنالیز گزارشات تبلیغاتی به شما کمک می‌کند عملکرد کمپین‌ها را ارزیابی کرده و راهکارهای بهینه‌سازی را شناسایی کنید.",
-			src: Im,
+			src: Image3,
 			textItems: [
 				"بررسی عملکرد کمپین‌ها",
 				"استخراج نقاط قوت و ضعف",
@@ -84,7 +86,7 @@ const Page = () => {
 
 				{/* Services Section with Scroll Animation */}
 				<section className="flex w-full flex-col items-center justify-center">
-					<div className="grid w-full grid-cols-1 gap-x-8 gap-y-6 lg:gap-y-20">
+					<div className="grid w-full grid-cols-1 gap-x-8 gap-y-6 lg:my-40 lg:gap-y-20">
 						{services.map((service, index) => (
 							<motion.div
 								key={index}

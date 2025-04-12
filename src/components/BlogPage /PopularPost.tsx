@@ -10,6 +10,7 @@ const PopularPost = () => {
 					src="/image 6.jpg"
 					alt="popular post"
 					fill
+					quality={100}
 					className="rounded-tr-2xl rounded-br-2xl"
 				/>
 			</div>

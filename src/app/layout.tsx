@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+
 import Shell from "@/components/shared/Shell";
 import { kaaf, peydaFaNum } from "@/fonts";
 import cn from "@/utils/cn";
@@ -18,8 +20,16 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" dir="rtl">
-			<body className={cn("antialiased", kaaf.variable, peydaFaNum.variable)}>
-				<Shell>{children}</Shell>
+			<body
+				className={cn(
+					"overflow-x-hidden antialiased",
+					kaaf.variable,
+					peydaFaNum.variable,
+				)}
+			>
+				<NuqsAdapter>
+					<Shell>{children}</Shell>
+				</NuqsAdapter>
 			</body>
 		</html>
 	);

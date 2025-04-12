@@ -6,13 +6,43 @@ import Image from "next/image";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const projects = [
+import CloseIcon from "@/public/Close 2.svg";
+
+interface ProjectDetails {
+	client: string;
+	date: string;
+	services: string[];
+	description: string;
+	images: string[];
+}
+
+interface Project {
+	id: number;
+	title: string;
+	description: string;
+	image: string;
+	type: string;
+	details: ProjectDetails;
+}
+
+const projects: Project[] = [
 	{
 		id: 1,
 		title: "Project 1",
 		description: "A web development project",
 		image: "/Images/projects/image 2.png",
 		type: "طراحی وب و اپلیکیشن",
+		details: {
+			client: "مشتری 1",
+			date: "1402/12/15",
+			services: ["طراحی وب", "توسعه اپلیکیشن"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 2.png",
+				"/Images/projects/image 3.png",
+				"/Images/projects/image 4.png",
+			],
+		},
 	},
 	{
 		id: 2,
@@ -20,6 +50,17 @@ const projects = [
 		description: "A mobile app",
 		image: "/Images/projects/image 3.png",
 		type: "برندینگ و هویت بصری",
+		details: {
+			client: "مشتری 2",
+			date: "1402/12/16",
+			services: ["طراحی لوگو", "برندینگ"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 3.png",
+				"/Images/projects/image 4.png",
+				"/Images/projects/image 5.png",
+			],
+		},
 	},
 	{
 		id: 3,
@@ -27,6 +68,17 @@ const projects = [
 		description: "Another web project",
 		image: "/Images/projects/image 4.png",
 		type: "طراحی وب و اپلیکیشن",
+		details: {
+			client: "مشتری 3",
+			date: "1402/12/17",
+			services: ["طراحی وب", "توسعه اپلیکیشن"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 4.png",
+				"/Images/projects/image 5.png",
+				"/Images/projects/image 6.png",
+			],
+		},
 	},
 	{
 		id: 4,
@@ -34,6 +86,17 @@ const projects = [
 		description: "An AI project",
 		image: "/Images/projects/image 5.png",
 		type: "برندینگ و هویت بصری",
+		details: {
+			client: "مشتری 4",
+			date: "1402/12/18",
+			services: ["طراحی لوگو", "برندینگ"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 5.png",
+				"/Images/projects/image 6.png",
+				"/Images/projects/image 7.png",
+			],
+		},
 	},
 	{
 		id: 5,
@@ -41,6 +104,17 @@ const projects = [
 		description: "A web development project",
 		image: "/Images/projects/image 6.png",
 		type: "طراحی وب و اپلیکیشن",
+		details: {
+			client: "مشتری 5",
+			date: "1402/12/19",
+			services: ["طراحی وب", "توسعه اپلیکیشن"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 6.png",
+				"/Images/projects/image 7.png",
+				"/Images/projects/image 8.png",
+			],
+		},
 	},
 	{
 		id: 6,
@@ -48,6 +122,17 @@ const projects = [
 		description: "A mobile app",
 		image: "/Images/projects/image 7.png",
 		type: "تبلیغات و کمپین‌ها",
+		details: {
+			client: "مشتری 6",
+			date: "1402/12/20",
+			services: ["تبلیغات", "کمپین"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 7.png",
+				"/Images/projects/image 8.png",
+				"/Images/projects/IMG_0319 1.png",
+			],
+		},
 	},
 	{
 		id: 7,
@@ -55,6 +140,17 @@ const projects = [
 		description: "Another web project",
 		image: "/Images/projects/image 8.png",
 		type: "تبلیغات و کمپین‌ها",
+		details: {
+			client: "مشتری 7",
+			date: "1402/12/21",
+			services: ["تبلیغات", "کمپین"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/image 8.png",
+				"/Images/projects/IMG_0319 1.png",
+				"/Images/projects/IMG_0396 1.png",
+			],
+		},
 	},
 	{
 		id: 8,
@@ -62,6 +158,17 @@ const projects = [
 		description: "An AI project",
 		image: "/Images/projects/IMG_0319 1.png",
 		type: "برندینگ و هویت بصری",
+		details: {
+			client: "مشتری 8",
+			date: "1402/12/22",
+			services: ["طراحی لوگو", "برندینگ"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/IMG_0319 1.png",
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+			],
+		},
 	},
 	{
 		id: 9,
@@ -69,14 +176,184 @@ const projects = [
 		description: "A web development project",
 		image: "/Images/projects/IMG_0396 1.png",
 		type: "تولید محتوای ویدیویی",
+		details: {
+			client: "مشتری 9",
+			date: "1402/12/23",
+			services: ["تولید محتوا", "ویدیو"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+			],
+		},
+	},
+	{
+		id: 10,
+		title: "Project 1",
+		description: "A web development project",
+		image: "/Images/projects/catalogue 1.png",
+		type: "تولید محتوای ویدیویی",
+		details: {
+			client: "مشتری 9",
+			date: "1402/12/23",
+			services: ["تولید محتوا", "ویدیو"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+			],
+		},
+	},
+	{
+		id: 11,
+		title: "Project 1",
+		description: "A web development project",
+		image: "/Images/projects/rada 1-2.png",
+		type: "تولید محتوای ویدیویی",
+		details: {
+			client: "مشتری 9",
+			date: "1402/12/23",
+			services: ["تولید محتوا", "ویدیو"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+			],
+		},
+	},
+	{
+		id: 12,
+		title: "Project 1",
+		description: "A web development project",
+		image: "/Images/projects/shabash 1-2.png",
+		type: "تولید محتوای ویدیویی",
+		details: {
+			client: "مشتری 9",
+			date: "1402/12/23",
+			services: ["تولید محتوا", "ویدیو"],
+			description: "توضیحات کامل پروژه در اینجا قرار می‌گیرد...",
+			images: [
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+				"/Images/projects/IMG_0396 1.png",
+			],
+		},
 	},
 ];
 
 const types = [...new Set(projects.map((project) => project.type))];
 const tabs = ["همه پروژه ها", ...types];
 
+interface ProjectModalProps {
+	project: Project | null;
+	isOpen: boolean;
+	onClose: () => void;
+}
+
+const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+	if (!project) return null;
+
+	const nextImage = () => {
+		setCurrentImageIndex((prev) =>
+			prev === project.details.images.length - 1 ? 0 : prev + 1,
+		);
+	};
+
+	const prevImage = () => {
+		setCurrentImageIndex((prev) =>
+			prev === 0 ? project.details.images.length - 1 : prev - 1,
+		);
+	};
+
+	return (
+		<AnimatePresence mode="wait">
+			{isOpen && (
+				<>
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.3 }}
+						className="bg-primary-900/80 fixed inset-0 z-40"
+						onClick={onClose}
+					/>
+					<motion.div
+						initial={{ y: "100%", x: "-50%" }}
+						animate={{ y: "-50%", x: "-50%" }}
+						exit={{ y: "100%", x: "-50%" }}
+						transition={{
+							type: "spring",
+							damping: 25,
+							stiffness: 120,
+							duration: 0.5,
+						}}
+						className="bg-primary-900 lg:scrollbar-hide fixed top-1/2 left-1/2 z-50 h-[385px] w-[343px] max-w-4xl overflow-y-auto rounded-3xl border border-solid border-[#038BB7] p-6 lg:h-[510px] lg:w-[500px]"
+					>
+						<div className="mb-6 flex items-center justify-between">
+							<h2 className="text-[14px] font-bold lg:text-2xl">
+								{project.title}
+							</h2>
+							<CloseIcon onClick={onClose} />
+						</div>
+						<div className="flex flex-col gap-6">
+							<div className="relative w-full">
+								<div className="scrollbar-hide flex h-[95px] w-full gap-4 overflow-x-auto lg:h-[300px]">
+									{project.details.images.map((image, index) => (
+										<div
+											key={index}
+											className="relative h-[94px] min-w-[300px] flex-shrink-0 lg:h-full"
+										>
+											<Image
+												src={image}
+												alt={`${project.title} - Image ${index + 1}`}
+												fill
+												quality={100}
+												className="rounded-lg object-cover"
+											/>
+										</div>
+									))}
+								</div>
+							</div>
+							<div className="space-y-4">
+								<div>
+									<h3 className="mb-2 font-bold">مشتری:</h3>
+									<p>{project.details.client}</p>
+								</div>
+								<div>
+									<h3 className="mb-2 font-bold">تاریخ:</h3>
+									<p>{project.details.date}</p>
+								</div>
+								<div>
+									<h3 className="mb-2 font-bold">خدمات:</h3>
+									<ul className="list-inside list-disc">
+										{project.details.services.map(
+											(service: string, index: number) => (
+												<li key={index}>{service}</li>
+											),
+										)}
+									</ul>
+								</div>
+								<div>
+									<h3 className="mb-2 font-bold">توضیحات:</h3>
+									<p>{project.details.description}</p>
+								</div>
+							</div>
+						</div>
+					</motion.div>
+				</>
+			)}
+		</AnimatePresence>
+	);
+};
+
 export default function Page() {
 	const [selectedTab, setSelectedTab] = useState("همه پروژه ها");
+	const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
 	const filteredProjects =
 		selectedTab === "همه پروژه ها"
@@ -94,7 +371,7 @@ export default function Page() {
 				</p>
 			</div>
 			<nav>
-				<ul className="scrollbar-hide flex w-full space-x-6 overflow-x-scroll">
+				<ul className="scrollbar-hide flex w-full cursor-pointer space-x-6 overflow-x-scroll">
 					{tabs.map((tab) => (
 						<motion.li
 							key={tab}
@@ -131,11 +408,12 @@ export default function Page() {
 									<Image
 										src={project.image}
 										alt={project.title}
-										width={1500} // Adjust based on your needs
-										height={0} // Set to 0 to let it scale proportionally
-										style={{ height: "auto", width: "100%" }} // Ensures natural height
-										className="object-cover"
+										width={1500}
+										height={0}
+										style={{ height: "auto", width: "100%" }}
+										className="cursor-pointer object-cover transition-opacity hover:opacity-90"
 										quality={100}
+										onClick={() => setSelectedProject(project)}
 									/>
 								</div>
 							))}
@@ -143,6 +421,11 @@ export default function Page() {
 					</motion.div>
 				</AnimatePresence>
 			</main>
+			<ProjectModal
+				project={selectedProject}
+				isOpen={!!selectedProject}
+				onClose={() => setSelectedProject(null)}
+			/>
 		</div>
 	);
 }
