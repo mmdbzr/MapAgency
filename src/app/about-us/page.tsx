@@ -1,6 +1,6 @@
 import React from "react";
 
-import ScrollBarX from "@/components/AboutUs/ScrollBarX";
+import ImageMarquee from "@/components/AboutUs/ImageMarquee";
 import RadiusButton from "@/components/RadiusButton";
 import BlueLineIcon from "@/public/Line.svg";
 
@@ -17,7 +17,7 @@ const Images: string[] = [
 
 const page = () => {
 	return (
-		<div className="mt-[94px] mb-[93px] px-6 lg:px-0">
+		<div className="mt-[94px] mb-[93px] lg:px-0">
 			<div className="relative -z-10 mt-[45px] flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
 				<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 					About Us
@@ -62,10 +62,11 @@ const page = () => {
 								/>
 							))}
 						</Marquee> */}
-						<ScrollBarX
+						{/* <ScrollBarX
 							images={Images}
 							className="relative z-10 lg:max-w-[912px]"
-						/>
+						/> */}
+						<ImageMarquee images={Images} speed={20} direction="right" />
 					</div>
 				</div>
 			</section>
@@ -87,12 +88,18 @@ const page = () => {
 						</p>
 						<BlueLineIcon className="mr-4 ml-14 h-20 w-2 lg:mr-0 lg:ml-28 lg:h-40" />
 					</div>
-					<div className="relative mt-6 lg:-right-20">
+					<div className="relative left-0 mt-6 lg:-right-20">
 						<div className="absolute left-0 z-20 h-28 w-36 bg-gradient-to-r from-[#10354D] to-transparent lg:h-[280px] lg:w-[280px]" />
-						<ScrollBarX
+						{/* <ScrollBarX
 							images={Images}
 							className="relative z-10 lg:max-w-[912px]"
-						/>{" "}
+						/>{" "} */}
+						<ImageMarquee
+							images={Images}
+							speed={20}
+							direction="left"
+							className="lg:!w-[1000px]"
+						/>
 					</div>
 				</div>
 			</section>
@@ -113,7 +120,9 @@ const page = () => {
 				</p>
 				<div className="relative mt-6 flex lg:mt-20">
 					<div className="absolute left-0 z-20 h-28 w-36 bg-gradient-to-r from-[#10354D] to-transparent lg:h-[280px] lg:w-[280px]" />
-					<ScrollBarX images={Images} className="relative z-10 lg:!w-full" />
+					{/* <ScrollBarX images={Images} className="relative z-10 lg:!w-full" /> */}
+					<ImageMarquee images={Images} speed={20} direction="right" />
+
 					<div className="absolute right-0 z-20 h-28 w-36 bg-gradient-to-r from-transparent to-[#10354D] lg:h-[280px] lg:w-[280px]" />
 				</div>
 				<BlueLineIcon className="relative right-[50%] mt-4 h-10 w-2 lg:h-28" />
