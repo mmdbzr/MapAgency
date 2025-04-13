@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 
 interface ImageMarqueeProps {
-	images: {
+	images?: {
 		src: string;
 		alt: string;
 	}[];
@@ -64,6 +64,8 @@ export default function ImageMarquee({
 	const controls = useAnimationControls();
 
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		if (!containerRef.current || !contentRef.current) return;
 
 		const updateWidths = () => {
@@ -71,10 +73,8 @@ export default function ImageMarquee({
 			setContentWidth(contentRef.current?.offsetWidth || 0);
 		};
 
-		// Initial measurement
 		updateWidths();
 
-		// Set up resize observer for responsive behavior
 		const resizeObserver = new ResizeObserver(updateWidths);
 		resizeObserver.observe(containerRef.current);
 		resizeObserver.observe(contentRef.current);
@@ -85,13 +85,9 @@ export default function ImageMarquee({
 	useEffect(() => {
 		if (containerWidth === 0 || contentWidth === 0) return;
 
-		// Calculate duration based on content width and speed
 		const duration = contentWidth / speed;
-
-		// Determine the animation distance
 		const distance = direction === "left" ? -contentWidth : contentWidth;
 
-		// Start the animation
 		controls.start({
 			x: distance,
 			transition: {

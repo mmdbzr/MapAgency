@@ -20,6 +20,19 @@ export default function SvgQueueAnimation() {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [processedIndices, setProcessedIndices] = useState<number[]>([]);
 	const [isAnimating, setIsAnimating] = useState(true);
+	const [windowWidth, setWindowWidth] = useState(1024); // Default to desktop size
+
+	useEffect(() => {
+		const handleResize = () => {
+			setWindowWidth(window.innerWidth);
+		};
+
+		// Set initial width
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	// Define SVG items
 	const svgItems = [
@@ -97,7 +110,7 @@ export default function SvgQueueAnimation() {
 
 	// Calculate positions for all items
 	const getItemPosition = (index: number) => {
-		const SPACE = window.innerWidth < 1024 ? 230 : 350; // Smaller space below lg breakpoint (1024px)
+		const SPACE = windowWidth < 1024 ? 230 : 350; // Smaller space below lg breakpoint (1024px)
 
 		if (index === currentIndex) return "-50%"; // Center
 		if (index < currentIndex) return `${-SPACE * (currentIndex - index)}px`; // Left of center
