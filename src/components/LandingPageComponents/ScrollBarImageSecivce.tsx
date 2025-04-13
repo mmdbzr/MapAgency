@@ -103,7 +103,7 @@ export default function ScrollBarImageSecivce({
 										className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
 									/>
 
-									<div className="absolute inset-0 z-20 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent px-2 pb-2 lg:px-4 lg:pb-6">
+									<div className="absolute inset-0 z-20 flex cursor-default flex-col justify-end bg-gradient-to-t from-black/70 to-transparent px-2 pb-2 lg:px-4 lg:pb-6">
 										<h3 className="mb-2 text-[10px] font-black text-white drop-shadow-md lg:text-[18px]">
 											{item.title}
 										</h3>

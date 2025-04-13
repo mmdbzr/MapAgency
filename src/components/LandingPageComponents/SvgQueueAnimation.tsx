@@ -97,16 +97,16 @@ export default function SvgQueueAnimation() {
 
 	// Calculate positions for all items
 	const getItemPosition = (index: number) => {
-		const SPACE = window.innerWidth < 1024 ? 170 : 350; // Smaller space below lg breakpoint (1024px)
+		const SPACE = window.innerWidth < 1024 ? 230 : 350; // Smaller space below lg breakpoint (1024px)
 
-		if (index === currentIndex) return "0%"; // Center
+		if (index === currentIndex) return "-50%"; // Center
 		if (index < currentIndex) return `${-SPACE * (currentIndex - index)}px`; // Left of center
 		return `${(SPACE + 50) * (index - currentIndex)}px`; // Right of center
 	};
 
 	return (
 		<div className="relative mt-40 flex h-[300px] w-full items-center justify-center space-x-5">
-			<div className="absolute left-[474px] h-[201px] w-[524px] rounded-full bg-[rgba(74,183,230,0.5)] blur-[150px]" />
+			<div className="absolute h-[150px] w-[300px] rounded-full bg-[rgba(74,183,230,0.5)] blur-[150px] lg:left-[474px] lg:h-[200px] lg:w-[524px]" />
 
 			<div className="relative flex h-full w-full max-w-[1440px] items-center overflow-x-hidden">
 				<AnimatePresence>
@@ -153,7 +153,9 @@ export default function SvgQueueAnimation() {
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ delay: 0.2 }}
 									>
-										<p className="font-black text-white">{item.text}</p>
+										<p className="text-[14px] font-black text-white lg:text-[16px]">
+											{item.text}
+										</p>
 									</motion.div>
 								)}
 								{/* {index === currentIndex && (

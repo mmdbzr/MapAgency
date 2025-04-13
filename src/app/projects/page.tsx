@@ -292,7 +292,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 							stiffness: 120,
 							duration: 0.5,
 						}}
-						className="bg-primary-900 lg:scrollbar-hide fixed top-1/2 left-1/2 z-50 h-[385px] w-[343px] max-w-4xl overflow-y-auto rounded-3xl border border-solid border-[#038BB7] p-6 lg:h-[510px] lg:w-[500px]"
+						className="bg-primary-900 lg:scrollbar-hide fixed top-1/2 left-1/2 z-50 h-[385px] w-[343px] max-w-4xl overflow-y-auto rounded-3xl border border-solid border-[#038BB7] p-6 lg:h-[728px] lg:w-[1904px]"
 					>
 						<div className="mb-6 flex items-center justify-between">
 							<h2 className="text-[14px] font-bold lg:text-2xl">
@@ -361,7 +361,7 @@ export default function Page() {
 			: projects.filter((project) => project.type === selectedTab);
 
 	return (
-		<div className="mt-[96px] h-full px-6 pb-12 lg:px-[117px]">
+		<div className="mt-[96px] h-full min-h-[calc(100vh-96px)] px-6 pb-12 lg:px-[117px]">
 			<div className="relative -z-10 mt-[45px] flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
 				<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 					Showcase of Recent Works

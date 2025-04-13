@@ -1,7 +1,4 @@
 import React from "react";
-import Marquee from "react-fast-marquee";
-
-import Image from "next/image";
 
 import ScrollBarX from "@/components/AboutUs/ScrollBarX";
 import RadiusButton from "@/components/RadiusButton";
@@ -51,23 +48,24 @@ const page = () => {
 							تبلیغات، ماموریت ما این است که برند شما را از رقبا متمایز کنیم.
 						</p>
 					</div>
-					<div className="relative mt-6 max-w-[900px] lg:-right-16 lg:mt-0">
+					<div className="relative mt-6 max-w-[1000px] lg:-right-16 lg:mt-0">
 						<div className="absolute z-20 h-28 w-36 bg-gradient-to-l from-[#10354D] to-transparent lg:h-[280px] lg:w-[280px]" />
-
-						<Marquee autoFill speed={50} delay={0} className="max-w-inherit">
-							<div className="max-w-inherit flex">
-								{Images.map((image, index) => (
-									<Image
-										key={index}
-										src={image}
-										alt="About Us"
-										width={280}
-										height={280}
-										className="mx-2 h-28 w-28 flex-shrink-0 lg:h-[280px] lg:w-[280px]"
-									/>
-								))}
-							</div>
-						</Marquee>
+						{/* <Marquee>
+							{Images.map((image, index) => (
+								<Image
+									key={index}
+									src={image}
+									alt="About Us"
+									width={280}
+									height={280}
+									className="mx-2 h-28 w-28 flex-shrink-0 lg:h-[280px] lg:w-[280px]"
+								/>
+							))}
+						</Marquee> */}
+						<ScrollBarX
+							images={Images}
+							className="relative z-10 lg:max-w-[912px]"
+						/>
 					</div>
 				</div>
 			</section>
