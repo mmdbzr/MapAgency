@@ -97,7 +97,7 @@ export default function SvgQueueAnimation() {
 
 	// Calculate positions for all items
 	const getItemPosition = (index: number) => {
-		const SPACE = window.innerWidth < 1024 ? 150 : 350; // Smaller space below lg breakpoint (1024px)
+		const SPACE = window.innerWidth < 1024 ? 170 : 350; // Smaller space below lg breakpoint (1024px)
 
 		if (index === currentIndex) return "0%"; // Center
 		if (index < currentIndex) return `${-SPACE * (currentIndex - index)}px`; // Left of center

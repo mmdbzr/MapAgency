@@ -19,18 +19,23 @@ type Slide = {
 const slides: Slide[] = [
 	{
 		id: 1,
-		backgroundImage: "/Tosan.svg",
-		foregroundImage: "/Azki.svg",
+		backgroundImage: "/Landing/AutoSlider/بیلبورد-ازکی 1.png",
+		foregroundImage: "/Landing/AutoSlider/Azki.svg",
 	},
 	{
 		id: 2,
-		backgroundImage: "/Tosan.svg",
-		foregroundImage: "/pril.svg",
+		backgroundImage: "/Landing/AutoSlider/images 1-3.png",
+		foregroundImage: "/Landing/AutoSlider/pril.svg",
 	},
 	{
 		id: 3,
-		backgroundImage: "/Tosan.svg",
-		foregroundImage: "/pril.svg",
+		backgroundImage: "/Landing/AutoSlider/اسنوا-1 1.png",
+		foregroundImage: "/Landing/AutoSlider/Group 78.svg",
+	},
+	{
+		id: 4,
+		backgroundImage: "/Landing/AutoSlider/IMG_0478 2.png",
+		foregroundImage: "/Landing/AutoSlider/Group 77.svg",
 	},
 ];
 
@@ -86,6 +91,7 @@ export default function AutoSlider({
 								src={slides[currentIndex].backgroundImage || "/PrillBg.png"}
 								alt={`Background for ${slides[currentIndex]}`}
 								fill
+								quality={100}
 								priority
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
 								style={{
@@ -94,13 +100,7 @@ export default function AutoSlider({
 								}}
 							/>
 						</div>
-						<div
-							className="absolute -z-30 h-[247px] w-full bg-cover lg:h-full"
-							style={{
-								backgroundImage:
-									"radial-gradient(50% 50% at 50% 50%, rgba(16, 53, 77, 0) 0%, #10354D 100%)",
-							}}
-						></div>
+						<div className="absolute -z-30 h-[247px] w-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(16,53,77,0)_0%,#10354D_100%)] bg-cover lg:h-full"></div>
 
 						{/* Foreground image with higher z-index */}
 						<motion.div
@@ -114,6 +114,7 @@ export default function AutoSlider({
 									src={slides[currentIndex].foregroundImage}
 									alt={`Foreground for ${slides[currentIndex]}`}
 									fill
+									quality={100}
 									className="h-[72px] w-16 object-contain"
 								/>
 							</div>

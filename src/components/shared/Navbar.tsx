@@ -165,7 +165,9 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
 							);
 						})}
 					</div>
-					<LogoIcon className="lg:h-9 lg:w-52" />
+					<Link href={APP_ROUTES.landing}>
+						<LogoIcon className="lg:h-9 lg:w-52" />
+					</Link>
 					<div className="hidden lg:flex lg:space-x-10">
 						{navigationItems.slice(midpoint).map(([path, meta]) => {
 							const isLanding = path === APP_ROUTES.landing;
