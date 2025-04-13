@@ -11,8 +11,8 @@ import { ServicesResponse } from "@/types/ServicesResponse";
 import cn from "@/utils/cn";
 
 export interface BlogPageProps {
-	categories: ServicesResponse["getBlogCategories"];
-	posts: ServicesResponse["getBlogPosts"];
+	categories?: ServicesResponse["getBlogCategories"] | null;
+	posts?: ServicesResponse["getBlogPosts"] | null;
 }
 
 const BlogPage: React.FC<BlogPageProps> = ({
@@ -159,20 +159,21 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						</button>
 						{isOpen && (
 							<div className="flex w-full flex-col gap-2 rounded-tl-3xl rounded-br-3xl">
-								{categoriesData.map((category) => (
-									<label
-										className="flex w-full cursor-pointer items-center gap-2 rounded-2xl p-2"
-										key={category.id}
-									>
-										<input
-											type="checkbox"
-											checked={checkedItems.environmental}
-											onChange={() => handleCheckboxChange("environmental")}
-											className="h-4 w-4 appearance-none rounded border-2 border-[#038BB7] checked:bg-[#038BB7]"
-										/>
-										<span className="text-[14px]">{category.title}</span>
-									</label>
-								))}
+								{categoriesData?.length &&
+									categoriesData.map((category) => (
+										<label
+											className="flex w-full cursor-pointer items-center gap-2 rounded-2xl p-2"
+											key={category.id}
+										>
+											<input
+												type="checkbox"
+												checked={checkedItems.environmental}
+												onChange={() => handleCheckboxChange("environmental")}
+												className="h-4 w-4 appearance-none rounded border-2 border-[#038BB7] checked:bg-[#038BB7]"
+											/>
+											<span className="text-[14px]">{category.title}</span>
+										</label>
+									))}
 
 								<label className="flex w-full cursor-pointer items-center gap-2 rounded-2xl p-2">
 									<input
@@ -227,15 +228,16 @@ const BlogPage: React.FC<BlogPageProps> = ({
 					</div>
 				</div>
 				<div className="flex flex-col items-center justify-center gap-6 lg:grid lg:grid-cols-3 lg:gap-6">
-					{posts.results.map((post) => (
-						<BlogPost
-							key={post.id}
-							title={post.title}
-							id={post.id}
-							description={post.short_description}
-							image={post.pictures?.[0] as string}
-						/>
-					))}
+					{posts?.results?.length &&
+						posts.results.map((post) => (
+							<BlogPost
+								key={post.id}
+								title={post.title}
+								id={post.id}
+								description={post.short_description}
+								image={post.pictures?.[0] as string}
+							/>
+						))}
 				</div>
 			</div>
 		</div>

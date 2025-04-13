@@ -1,7 +1,6 @@
 import { type SearchParams, createLoader, parseAsString } from "nuqs/server";
 
 import BlogPage from "@/components/BlogPage /BlogPage";
-import Services from "@/services";
 
 const Page = async ({
 	searchParams,
@@ -15,10 +14,10 @@ const Page = async ({
 	const { categories: categoriesSearchParams } =
 		await loadSearchParams(searchParams);
 
-	const categories = await Services.getBlogCategories();
-	const posts = await Services.getBlogPosts();
+	// const categories = await Services.getBlogCategories();
+	// const posts = await Services.getBlogPosts();
 
-	return <BlogPage categories={categories} posts={posts} />;
+	return <BlogPage categories={null} posts={null} />;
 };
 
 export default Page;

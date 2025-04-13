@@ -10,7 +10,7 @@ interface Item {
 }
 
 interface ScrollBarImageSecivce {
-	items: Item[];
+	items?: Item[];
 	className?: string;
 }
 

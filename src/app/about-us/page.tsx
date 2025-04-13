@@ -4,15 +4,15 @@ import ImageMarquee from "@/components/AboutUs/ImageMarquee";
 import RadiusButton from "@/components/RadiusButton";
 import BlueLineIcon from "@/public/Line.svg";
 
-const Images: string[] = [
-	"/Images/AboutUs/Frame 1000002388-2.png",
-	"/Images/AboutUs/Frame 1000002387-2.png",
-	"/Images/AboutUs/Frame 1000002386.png",
-	"/Images/AboutUs/Frame 1000002385.png",
-	"/Images/AboutUs/Frame 1000002388-2.png",
-	"/Images/AboutUs/Frame 1000002387-2.png",
-	"/Images/AboutUs/Frame 1000002386.png",
-	"/Images/AboutUs/Frame 1000002385.png",
+const Images: { src: string; alt: string }[] = [
+	{ src: "/Images/AboutUs/Frame 1000002388-2.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002387-2.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002386.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002385.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002388-2.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002387-2.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002386.png", alt: "About Us" },
+	{ src: "/Images/AboutUs/Frame 1000002385.png", alt: "About Us" },
 ];
 
 const page = () => {
@@ -97,7 +97,7 @@ const page = () => {
 						<ImageMarquee
 							images={Images}
 							speed={20}
-							direction="left"
+							direction="right"
 							className="lg:!w-[1000px]"
 						/>
 					</div>

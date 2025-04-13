@@ -9,8 +9,13 @@ import Services from "@/services";
 // This is a mock data - in real app you would fetch this from anAPI
 const getBlogPost = (id: number) => Services.getSingleBlogPost(id);
 
-const BlogPostPage = async ({ params }: { params: { id: string } }) => {
-	const post = await getBlogPost(parseInt(params.id));
+const BlogPostPage = async ({
+	params,
+}: {
+	params: Promise<{ id: string }>;
+}) => {
+	const post = null;
+	// const post = await getBlogPost(parseInt((await params).id));
 
 	return (
 		<div className="mt-[96px] flex flex-col items-center px-4 py-8">
@@ -25,22 +30,24 @@ const BlogPostPage = async ({ params }: { params: { id: string } }) => {
 			<article className="flex w-[327px] flex-col items-center lg:w-[746px]">
 				<div className="relative h-[194px] w-[327px] rounded-2xl lg:h-[393px] lg:w-[746px]">
 					<Image
-						src={post.pictures?.[0] as string}
-						alt={post.title}
+						src={((post as any)?.pictures?.[0] as string) || ""}
+						alt={((post as any)?.title || "") as string}
 						fill
 						quality={100}
 						className="h-full w-full rounded-2xl"
 					/>
 				</div>
 				<div className="mt-4 flex w-[327px] items-center justify-between lg:w-[746px]">
-					<h1 className="text-[14px] font-black lg:text-3xl">{post.title}</h1>
+					<h1 className="text-[14px] font-black lg:text-3xl">
+						{((post as any)?.title || "") as string}
+					</h1>
 					<Link href="/blog" className="text-secondary-main flex items-center">
 						<p className="text-[12px]">بازگشت</p>
 						<BackIcon />
 					</Link>
 				</div>
 				<div className="prose prose-lg mt-6">
-					<p dangerouslySetInnerHTML={{ __html: post.text }} />
+					<p dangerouslySetInnerHTML={{ __html: (post as any)?.text }} />
 				</div>
 			</article>
 		</div>

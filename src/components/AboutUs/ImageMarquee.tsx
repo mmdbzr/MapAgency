@@ -18,7 +18,40 @@ interface ImageMarqueeProps {
 }
 
 export default function ImageMarquee({
-	images,
+	images = [
+		{
+			src: "/Images/AboutUs/Frame 1000002388-2.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002387-2.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002386.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002385.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002388-2.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002387-2.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002386.png",
+			alt: "About Us",
+		},
+		{
+			src: "/Images/AboutUs/Frame 1000002385.png",
+			alt: "About Us",
+		},
+	],
 	speed = 40,
 	direction = "left",
 	gap = 20,
@@ -92,8 +125,8 @@ export default function ImageMarquee({
 						className="relative h-28 w-28 flex-shrink-0 lg:h-[280px] lg:w-[280px]"
 					>
 						<Image
-							src={image || "/placeholder.svg"}
-							alt="image.alt"
+							src={image.src}
+							alt={image.alt}
 							fill
 							className="object-cover"
 						/>
