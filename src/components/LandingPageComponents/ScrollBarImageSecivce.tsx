@@ -91,7 +91,7 @@ export default function ScrollBarImageSecivce({
 						{items.map((item) => (
 							<div
 								key={item.id}
-								className="group h-[120] w-[120px] flex-none overflow-hidden shadow-md transition-all hover:shadow-lg lg:w-[307px]"
+								className="group h-[120] w-[120px] flex-none overflow-hidden shadow-md transition-all hover:shadow-lg lg:h-[341px] lg:w-[307px]"
 							>
 								<div className="relative h-[120px] w-full overflow-hidden lg:h-[341px]">
 									<div className="absolute inset-0 z-10 bg-black/40 transition-opacity duration-300 group-hover:opacity-0"></div>
