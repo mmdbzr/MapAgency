@@ -9,6 +9,7 @@ export interface ServicesResponse {
 		text: string;
 		text_fa: string;
 		text_en: string | null;
+		image: string;
 	}>;
 	getSingleBlogPost: {
 		id: number;
@@ -18,7 +19,7 @@ export interface ServicesResponse {
 		short_description: string;
 		tags: string;
 		categories: unknown[];
-		pictures: unknown[];
+		pictures: any[];
 		create_date: string;
 		start_show_date: string;
 		allow_comment: boolean;
@@ -36,7 +37,7 @@ export interface ServicesResponse {
 			short_description: string;
 			tags: string;
 			categories: unknown[];
-			pictures: unknown[];
+			pictures: any[];
 			create_date: string;
 			start_show_date: string;
 			allow_comment: boolean;

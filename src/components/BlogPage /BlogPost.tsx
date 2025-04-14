@@ -22,7 +22,7 @@ const BlogPost = ({ title, id, description, image }: BlogPostProps) => {
 						fill
 						quality={100}
 						className="h-[141px] w-[331px] rounded-2xl object-cover lg:h-[176px] lg:w-[234px]"
-						src="/image 6.jpg"
+						src={image}
 						alt="blog post"
 					/>
 				</div>

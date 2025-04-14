@@ -94,13 +94,10 @@ export default function AutoSlider({
 								quality={100}
 								priority
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-								style={{
-									objectFit: "cover",
-									objectPosition: "center",
-								}}
+								className="object-cover object-center"
 							/>
 						</div>
-						<div className="absolute -z-30 h-[247px] w-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(16,53,77,0)_0%,#10354D_100%)] bg-cover lg:h-full"></div>
+						<div className="absolute -z-30 h-[249px] w-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(16,53,77,0)_0%,#10354D_100%)] bg-cover lg:h-full"></div>
 
 						{/* Foreground image with higher z-index */}
 						<motion.div

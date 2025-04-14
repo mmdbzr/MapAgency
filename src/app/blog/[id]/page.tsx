@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import BackIcon from "@/public/chevron-left.svg";
 import Services from "@/services";
+import axiosInstance from "@/services/axiosInstance";
 
-// This is a mock data - in real app you would fetch this from anAPI
 const getBlogPost = (id: number) => Services.getSingleBlogPost(id);
 
 const BlogPostPage = async ({
@@ -14,8 +14,13 @@ const BlogPostPage = async ({
 }: {
 	params: Promise<{ id: string }>;
 }) => {
-	const post = null;
-	// const post = await getBlogPost(parseInt((await params).id));
+	const post = await getBlogPost(parseInt((await params).id));
+
+	// Get the image URL and ensure it's a full URL
+	const imageUrl = (post as any)?.pictures?.[0]?.download_url;
+	const fullImageUrl = imageUrl?.startsWith("http")
+		? imageUrl
+		: `${axiosInstance.defaults.baseURL}${imageUrl?.startsWith("/") ? imageUrl : `/${imageUrl}`}`;
 
 	return (
 		<div className="mt-[96px] flex flex-col items-center px-4 py-8">
@@ -29,13 +34,18 @@ const BlogPostPage = async ({
 			</div>
 			<article className="flex w-[327px] flex-col items-center lg:w-[746px]">
 				<div className="relative h-[194px] w-[327px] rounded-2xl lg:h-[393px] lg:w-[746px]">
-					<Image
-						src={((post as any)?.pictures?.[0] as string) || ""}
-						alt={((post as any)?.title || "") as string}
-						fill
-						quality={100}
-						className="h-full w-full rounded-2xl"
-					/>
+					{fullImageUrl && (
+						<Image
+							src={fullImageUrl}
+							alt={(post as any)?.title || "blog post image"}
+							fill
+							quality={100}
+							className="h-full w-full rounded-2xl object-cover"
+							sizes="(max-width: 768px) 327px, (max-width: 1200px) 746px, 746px"
+							priority
+							loading="eager"
+						/>
+					)}
 				</div>
 				<div className="mt-4 flex w-[327px] items-center justify-between lg:w-[746px]">
 					<h1 className="text-[14px] font-black lg:text-3xl">

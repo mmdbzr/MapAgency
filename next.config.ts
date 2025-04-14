@@ -1,6 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	output: "standalone",
+	images: {
+		domains: ["preview.kiaads.com"],
+		unoptimized: true,
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "preview.kiaads.com",
+				port: "",
+				pathname: "/**",
+			},
+		],
+	},
 	webpack(config: any) {
 		// Grab the existing rule that handles SVG imports
 		const fileLoaderRule = config.module.rules.find((rule: any) =>
