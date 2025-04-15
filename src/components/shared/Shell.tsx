@@ -25,7 +25,7 @@ const Shell: React.FC<ShellProps> = ({ children }) => {
 				}
 			}}
 		>
-			<Navbar ref={navbarRef} />
+			<Navbar ref={navbarRef as React.RefObject<HTMLElement>} />
 			{children}
 			<Footer />
 		</main>

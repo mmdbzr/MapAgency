@@ -13,7 +13,9 @@ import LogoIcon from "@/public/logo-full.svg";
 import MenuIcon from "@/public/menu.svg";
 import cn from "@/utils/cn";
 
-type NavbarProps = Record<string, never>;
+type NavbarProps = {
+	ref?: React.RefObject<HTMLElement>;
+};
 
 const Navbar = forwardRef<HTMLElement, NavbarProps>(
 	function Navbar(props, ref) {
