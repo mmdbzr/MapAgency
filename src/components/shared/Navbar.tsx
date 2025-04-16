@@ -170,9 +170,15 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
 								);
 							})}
 						</nav>
-						<Link href={APP_ROUTES.landing}>
+
+						<button
+							className="flex cursor-pointer items-center justify-center"
+							onClick={() => {
+								window.location.href = APP_ROUTES.landing;
+							}}
+						>
 							<LogoIcon className="lg:h-9 lg:w-52" />
-						</Link>
+						</button>
 						<div className="hidden lg:flex lg:space-x-10">
 							{navigationItems.slice(midpoint).map(([path, meta]) => {
 								const isLanding = path === APP_ROUTES.landing;
