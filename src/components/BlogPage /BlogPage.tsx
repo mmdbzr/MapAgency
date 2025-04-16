@@ -229,6 +229,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 								id={post.id}
 								description={post.short_description}
 								image={post.pictures || ""}
+								date={post.start_show_date}
 							/>
 						))}
 				</div>

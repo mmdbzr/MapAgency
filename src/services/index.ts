@@ -20,6 +20,11 @@ const Services = {
 				ServicesResponse["getSingleBlogPost"]
 			>(`/api/v1/articles/detail/${id}`)
 			.then((res) => res.data),
+
+	getProducts: () =>
+		axiosInstance
+			.get<ServicesResponse["getProducts"]>("/api/v1/products/detail")
+			.then((res) => res.data),
 };
 
 export default Services;

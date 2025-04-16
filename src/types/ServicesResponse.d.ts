@@ -60,4 +60,77 @@ export interface ServicesResponse {
 			}>;
 		};
 	}>;
+
+	getProducts: {
+		id: number;
+		picture: {
+			id: number;
+			download_url: string;
+			alternative: string;
+			title: string;
+			priority: number;
+			position: string;
+			open_in_new_tab: boolean;
+			url: string;
+			thumbnails: Array<{
+				[key: string]: string;
+			}>;
+		};
+		gallery: Array<{
+			id: number;
+			download_url: string;
+			alternative: string;
+			title: string;
+			priority: number;
+			position: string;
+			open_in_new_tab: boolean;
+			url: string;
+			thumbnails: Array<{
+				[key: string]: string;
+			}>;
+		}>;
+		categories: Array<{
+			id: number;
+			children: string;
+			pictures: Array<{
+				id: number;
+				download_url: string;
+				alternative: string;
+				title: string;
+				priority: number;
+				position: string;
+				open_in_new_tab: boolean;
+				url: string;
+				thumbnails: Array<{
+					[key: string]: string;
+				}>;
+			}>;
+			title: string;
+			title_fa: string;
+			title_en: string;
+			slug: string;
+			description: string;
+			description_fa: string;
+			description_en: string;
+			priority: number;
+		}>;
+		title: string;
+		title_fa: string;
+		title_en: string;
+		slug: string;
+		description: string;
+		description_fa: string;
+		description_en: string;
+		additional_description: string;
+		additional_description_fa: string;
+		additional_description_en: string;
+		short_description: string;
+		short_description_fa: string;
+		short_description_en: string;
+		tags: string;
+		tags_fa: string;
+		tags_en: string;
+		product_code: string;
+		visit_count: number;
+	};
 }
