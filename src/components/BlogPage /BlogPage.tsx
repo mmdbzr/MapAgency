@@ -229,13 +229,12 @@ const BlogPage: React.FC<BlogPageProps> = ({
 								id={post.id}
 								description={post.short_description}
 								image={post.pictures || ""}
-								date={post.start_show_date}
 							/>
 						))}
 				</div>
 			</div>
 			{/* Pagination controls */}
-			<div className="mt-8 flex items-center justify-center gap-2">
+			{/* <div className="mt-8 flex items-center justify-center gap-2">
 				<button
 					onClick={() => setPageIndex(Math.max(1, pageIndex - 1))}
 					disabled={pageIndex === 1}
@@ -287,7 +286,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						/>
 					</svg>
 				</button>
-			</div>
+			</div> */}
 		</div>
 	);
 };

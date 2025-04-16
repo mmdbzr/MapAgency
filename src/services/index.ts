@@ -21,9 +21,31 @@ const Services = {
 			>(`/api/v1/articles/detail/${id}`)
 			.then((res) => res.data),
 
-	getProducts: () =>
+	getProducts: (params?: { config?: AxiosRequestConfig }) =>
 		axiosInstance
-			.get<ServicesResponse["getProducts"]>("/api/v1/products/detail")
+			.get<
+				ServicesResponse["getProducts"]
+			>("/api/v1/products/filter/", params?.config)
+			.then((res) => res.data),
+
+	getSingleProduct: (slug: string) =>
+		axiosInstance
+			.get<ServicesResponse["getSingleProduct"]>(`/api/v1/products/detail/`, {
+				params: {
+					slug,
+				},
+			})
+			.then((res) => res.data)
+			.catch((error) => {
+				console.log(" getSingleProduct error : ", error);
+				console.log("Request URL:", error.config?.url);
+			}),
+
+	getProductsCategories: () =>
+		axiosInstance
+			.get<
+				ServicesResponse["getProductsCategories"]
+			>("/api/v1/products/categories/")
 			.then((res) => res.data),
 };
 

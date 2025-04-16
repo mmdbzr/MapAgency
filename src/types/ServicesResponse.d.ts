@@ -1,4 +1,84 @@
 export interface ServicesResponse {
+	getSingleProduct: {
+		id: number;
+		picture: {
+			id: number;
+			download_url: string;
+			alternative: string;
+			title: string;
+			priority: number;
+			position: string;
+			open_in_new_tab: boolean;
+			url: string;
+			thumbnails: [
+				{
+					thumb_400x300: string;
+				},
+				{
+					thumb_100x100: string;
+				},
+				{
+					thumb_700x500: string;
+				},
+			];
+		};
+		gallery: [
+			{
+				id: number;
+				download_url: string;
+				alternative: string;
+				title: string;
+				priority: number;
+				position: string;
+				open_in_new_tab: boolean;
+				url: string;
+				thumbnails: [
+					{
+						thumb_100x100: string;
+					},
+					{
+						thumb_400x300: string;
+					},
+					{
+						thumb_700x500: string;
+					},
+				];
+			},
+		];
+		categories: Array<{
+			id: number;
+			pictures: [];
+			title: string;
+			title_fa: string;
+			title_en: string | null;
+			slug: string;
+			description: string;
+			description_fa: string;
+			description_en: string | null;
+			priority: number;
+			tags: string;
+			tags_fa: string;
+			tags_en: string | null;
+		}>;
+		title: string;
+		title_fa: string;
+		title_en: string | null;
+		slug: string;
+		description: string;
+		description_fa: string;
+		description_en: string | null;
+		additional_description: string;
+		additional_description_fa: string;
+		additional_description_en: string | null;
+		short_description: string;
+		short_description_fa: string;
+		short_description_en: string | null;
+		tags: string;
+		tags_fa: string;
+		tags_en: string | null;
+		product_code: string;
+		visit_count: number;
+	};
 	getBlogCategories: Array<{
 		id: number;
 		sub_categories: unknown[];
@@ -61,38 +141,31 @@ export interface ServicesResponse {
 		};
 	}>;
 
-	getProducts: {
+	getProductsCategories: Array<{
 		id: number;
-		picture: {
-			id: number;
-			download_url: string;
-			alternative: string;
+		children: unknown[];
+		pictures: string[];
+		title: string;
+		title_fa: string;
+		title_en: string | null;
+		slug: string;
+		description: string;
+		description_fa: string;
+		description_en: string;
+		priority: number;
+	}>;
+
+	getProducts: {
+		count: 1;
+		total_pages: 1;
+		next: null;
+		previous: null;
+		results: Array<{
 			title: string;
-			priority: number;
-			position: string;
-			open_in_new_tab: boolean;
-			url: string;
-			thumbnails: Array<{
-				[key: string]: string;
-			}>;
-		};
-		gallery: Array<{
-			id: number;
-			download_url: string;
-			alternative: string;
-			title: string;
-			priority: number;
-			position: string;
-			open_in_new_tab: boolean;
-			url: string;
-			thumbnails: Array<{
-				[key: string]: string;
-			}>;
-		}>;
-		categories: Array<{
-			id: number;
-			children: string;
-			pictures: Array<{
+			slug: string;
+			short_description: string;
+			product_code: string;
+			picture: {
 				id: number;
 				download_url: string;
 				alternative: string;
@@ -101,36 +174,19 @@ export interface ServicesResponse {
 				position: string;
 				open_in_new_tab: boolean;
 				url: string;
-				thumbnails: Array<{
-					[key: string]: string;
-				}>;
-			}>;
-			title: string;
-			title_fa: string;
-			title_en: string;
-			slug: string;
-			description: string;
-			description_fa: string;
-			description_en: string;
-			priority: number;
+				thumbnails: [
+					{
+						thumb_100x100: string;
+					},
+					{
+						thumb_400x300: string;
+					},
+					{
+						thumb_700x500: string;
+					},
+				];
+			};
+			visit_count: number;
 		}>;
-		title: string;
-		title_fa: string;
-		title_en: string;
-		slug: string;
-		description: string;
-		description_fa: string;
-		description_en: string;
-		additional_description: string;
-		additional_description_fa: string;
-		additional_description_en: string;
-		short_description: string;
-		short_description_fa: string;
-		short_description_en: string;
-		tags: string;
-		tags_fa: string;
-		tags_en: string;
-		product_code: string;
-		visit_count: number;
 	};
 }

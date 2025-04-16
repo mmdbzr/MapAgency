@@ -25,6 +25,7 @@ const Page = async ({
 			},
 		},
 	});
+
 	const postsWithPictures = await Promise.all(
 		posts.results.map(async (post) => {
 			const fullPost = await Services.getSingleBlogPost(post.id);
