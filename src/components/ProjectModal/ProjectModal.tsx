@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useEffect } from "react";
 
 import Image from "next/image";
 
 import { AnimatePresence, motion } from "framer-motion";
 
 import CloseIcon from "@/public/Close 2.svg";
+import Services from "@/services";
 import { ServicesResponse } from "@/types/ServicesResponse";
 
 interface ProjectDetails {
@@ -41,18 +43,18 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 
 	console.log("slug : ", slug);
 
-	// useEffect(() => {
-	// 	if (slug) {
-	// 		Services.getSingleProduct(slug)
-	// 			.then((project) => {
-	// 				console.log("project : ", project);
-	// 				setProject(project);
-	// 			})
-	// 			.catch((error) => {
-	// 				console.log("error : ", error);
-	// 			});
-	// 	}
-	// }, [slug]);
+	useEffect(() => {
+		if (slug) {
+			Services.getSingleProduct(slug)
+				.then((project) => {
+					console.log("project : ", project);
+					setProject(project);
+				})
+				.catch((error) => {
+					console.log("error : ", error);
+				});
+		}
+	}, [slug]);
 
 	if (!slug) return null;
 
