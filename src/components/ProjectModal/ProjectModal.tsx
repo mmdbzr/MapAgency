@@ -52,6 +52,7 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 				})
 				.catch((error) => {
 					console.log("error : ", error);
+					setProject(null);
 				});
 		}
 	}, [slug]);

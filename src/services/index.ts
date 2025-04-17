@@ -39,6 +39,7 @@ const Services = {
 			.catch((error) => {
 				console.log(" getSingleProduct error : ", error);
 				console.log("Request URL:", error.config?.url);
+				return null;
 			}),
 
 	getProductsCategories: () =>
