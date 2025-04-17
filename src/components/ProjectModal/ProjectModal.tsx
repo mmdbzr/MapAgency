@@ -47,7 +47,10 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 		if (slug) {
 			Services.getSingleProduct(slug)
 				.then((project) => {
-					console.log("project : ", project);
+					console.log(
+						"project modal gallery: ",
+						project?.gallery[0].download_url,
+					);
 					setProject(project);
 				})
 				.catch((error) => {
