@@ -48,6 +48,18 @@ const Services = {
 				ServicesResponse["getProductsCategories"]
 			>("/api/v1/products/categories/")
 			.then((res) => res.data),
+
+	getServices: () =>
+		axiosInstance
+			.get<ServicesResponse["getServices"]>(
+				`/api/v1/service-introductions/list/`,
+			)
+			.then((res) => res.data)
+			.catch((error) => {
+				console.log(" getServices error : ", error);
+				console.log("Request URL:", error.config?.url);
+				return null;
+			}),
 };
 
 export default Services;

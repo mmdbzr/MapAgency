@@ -189,4 +189,39 @@ export interface ServicesResponse {
 			visit_count: number;
 		}>;
 	};
+
+	getServices: Array<{
+		id: number;
+		image: {
+			id: number;
+			download_url: string;
+			alternative: string;
+			title: string;
+			priority: number;
+			position: string;
+			open_in_new_tab: boolean;
+			url: string;
+			thumbnails: [
+				{
+					thumb_100x100: string;
+				},
+				{
+					thumb_400x300: string;
+				},
+				{
+					thumb_700x500: string;
+				},
+			];
+		};
+		title: string;
+		title_fa: string;
+		title_en: string | null;
+		description: string;
+		description_fa: string;
+		description_en: string | null;
+		positions: string;
+		url: string;
+		icon: string;
+		priority: number;
+	}>;
 }
