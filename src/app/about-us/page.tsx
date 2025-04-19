@@ -1,7 +1,10 @@
 import React from "react";
 
+import Link from "next/link";
+
 import ImageMarquee from "@/components/AboutUs/ImageMarquee";
 import RadiusButton from "@/components/RadiusButton";
+import { APP_ROUTES } from "@/constants";
 import BlueLineIcon from "@/public/Line.svg";
 
 const Images: { src: string; alt: string }[] = [
@@ -127,9 +130,11 @@ const page = () => {
 				</div>
 				<BlueLineIcon className="relative right-[50%] mt-4 h-10 w-2 lg:h-28" />
 				<div className="flex w-full justify-center">
-					<RadiusButton className="h-10 w-48 lg:h-16 lg:w-72 lg:text-[14px]">
-						همین حالا از مشاوره رایگان بهره‌مند شوید!
-					</RadiusButton>
+					<Link href={APP_ROUTES.contactUs}>
+						<RadiusButton className="h-10 w-48 lg:h-16 lg:w-72 lg:text-[14px]">
+							همین حالا از مشاوره رایگان بهره‌مند شوید!
+						</RadiusButton>
+					</Link>
 				</div>
 			</section>
 		</div>

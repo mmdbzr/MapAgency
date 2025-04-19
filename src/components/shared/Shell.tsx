@@ -15,7 +15,7 @@ const Shell: React.FC<ShellProps> = ({ children }) => {
 
 	return (
 		<main
-			className="max-h-screen min-h-screen max-w-screen min-w-screen overflow-auto"
+			className="flex max-h-screen min-h-screen max-w-screen min-w-screen flex-col overflow-auto"
 			ref={shellRef}
 			onScroll={() => {
 				if (shellRef.current && navbarRef.current) {

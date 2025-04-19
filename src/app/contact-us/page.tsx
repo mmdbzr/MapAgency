@@ -94,7 +94,7 @@ const ContactUsPage = () => {
 								</p>
 							</div>
 							<p className="mt-2 text-base leading-[17.15px] font-light tracking-normal lg:mt-4 lg:text-[20px]">
-								info@kiaads.com
+								info@mapagency.co
 							</p>
 						</div>
 						<div>

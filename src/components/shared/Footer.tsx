@@ -13,12 +13,12 @@ import WhatsAppIcon from "@/public/whatsapp.svg";
 const Footer: React.FC = (props) => {
 	return (
 		<footer
-			className="relative -z-10 flex h-[400px] w-full justify-center"
-			style={{
-				clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)",
-			}}
+			className="col bottom-0 flex h-[400px] w-full flex-col items-center justify-center lg:mt-16 lg:mb-28"
+			// style={{
+			// 	clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)",
+			// }}
 		>
-			<div className="bg-primary-800 fixed bottom-0 flex h-[400px] w-full flex-col gap-4 p-4 lg:grid lg:grid-cols-9 lg:justify-center lg:gap-x-6">
+			<div className="bg-primary-800 bottom-0 flex h-[400px] w-full flex-col gap-4 p-4 lg:grid lg:max-h-[284px] lg:max-w-[1182px] lg:grid-cols-9 lg:justify-center lg:gap-x-6">
 				<div className="flex flex-col gap-2 lg:col-span-3 lg:p-4">
 					<FullLogoIcon className="lg:mt-6 lg:h-[47px] lg:w-[258px]" />
 					<p className="text-xs leading-5 lg:text-sm lg:leading-[27px] lg:font-normal lg:tracking-normal">
@@ -35,20 +35,28 @@ const Footer: React.FC = (props) => {
 							تماس با ما
 						</h2>
 						<p>تلفن : 22705061</p>
-						<p>آدرس ایمیل : info@kiaads.ir</p>
+						<p>آدرس ایمیل : info@mapagency.co</p>
 						<p>
 							آدرس : تهران ،دزاشیب ، خیابان کبیری ساختمان دربند ، پلاک 52 ،واحد
 							1 و 2
 						</p>
 					</div>
-					<div className="col-span-1 flex flex-col gap-2 text-xs leading-5 lg:text-sm lg:leading-[18.2px] lg:font-normal">
+					<div className="col-span-1 flex flex-col gap-2 text-xs leading-5 lg:w-[170px] lg:text-sm lg:leading-[18.2px] lg:font-normal">
 						<h2 className="lg:leading-md mb-2 text-sm font-bold lg:mt-10 lg:flex lg:text-center lg:text-2xl lg:tracking-normal">
 							لینک های مفید
 						</h2>
-						<Link href={APP_ROUTES.aboutUs}>درباره ما</Link>
-						<Link href={APP_ROUTES.projects}>پروژه ها</Link>
-						<Link href={APP_ROUTES.contactUs}>تماس با ما</Link>
-						<Link href={APP_ROUTES.services}>خدمات</Link>
+						<Link className="cursor-pointer" href={APP_ROUTES.aboutUs}>
+							درباره ما
+						</Link>
+						<Link className="cursor-pointer" href={APP_ROUTES.projects}>
+							پروژه ها
+						</Link>
+						<Link className="cursor-pointer" href={APP_ROUTES.contactUs}>
+							تماس با ما
+						</Link>
+						<Link className="cursor-pointer" href={APP_ROUTES.services}>
+							خدمات
+						</Link>
 					</div>
 				</div>
 				<div className="flex flex-col lg:col-span-3 lg:h-full lg:items-center lg:px-4">
@@ -78,6 +86,9 @@ const Footer: React.FC = (props) => {
 					</div>
 				</div>
 			</div>
+			<p className="mt-4 hidden text-[14px] lg:flex" dir="ltr">
+				©MAPAGENCY. All rights reserved.
+			</p>
 		</footer>
 	);
 };
