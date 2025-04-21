@@ -10,6 +10,54 @@ import SearchIcon from "@/public/fi-rr-search.svg";
 import { ServicesResponse } from "@/types/ServicesResponse";
 import cn from "@/utils/cn";
 
+const SearchModal: React.FC<{
+	isOpen: boolean;
+	onClose: () => void;
+	searchQuery: string;
+	setSearchQuery: (value: string) => void;
+}> = ({ isOpen, onClose, searchQuery, setSearchQuery }) => {
+	if (!isOpen) return null;
+
+	return (
+		<div className="bg-opacity-50 fixed inset-0 z-50 flex h-full items-start justify-center bg-black/15 p-6 pt-[250px]">
+			<div className="w-full max-w-md rounded-tl-3xl rounded-br-3xl bg-[#0E4059] p-4">
+				<div className="flex items-center justify-between">
+					<h2 className="text-lg font-bold text-white">جستجوی مقالات</h2>
+					<button
+						onClick={onClose}
+						className="text-white"
+						aria-label="Close search modal"
+					>
+						<svg
+							className="h-6 w-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M6 18L18 6M6 6l12 12"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div className="bg-secondary-500 mt-4 flex items-center gap-2 rounded-3xl px-4 py-2">
+					<input
+						className="w-full bg-transparent text-white outline-none placeholder:text-white/50"
+						aria-label="Search articles"
+						value={searchQuery}
+						onChange={(e) => setSearchQuery(e.target.value)}
+						autoFocus
+					/>
+					<SearchIcon />
+				</div>
+			</div>
+		</div>
+	);
+};
+
 export interface BlogPageProps {
 	categories?: ServicesResponse["getBlogCategories"] | null;
 	posts?: ServicesResponse["getBlogPosts"] | null;
@@ -38,6 +86,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 		parseAsIndex.withDefault(1),
 	);
 	const [isOpen, setIsOpen] = useState(false);
+	const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
 	const handleCheckboxChange = (key: string) => {
 		setCategory(key === categoryQueryState ? "" : key);
@@ -143,7 +192,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 					مقالات
 				</p>
 			</div>
-			<div className="flex flex-col lg:flex-row lg:items-start lg:px-[132px]">
+			<div className="flex flex-col lg:flex-row lg:items-start lg:justify-center lg:px-[132px]">
 				<div className="ml-5 hidden items-center rounded-2xl bg-[#0E4059] p-4 lg:flex lg:h-[800px] lg:w-72 lg:flex-col">
 					<div>
 						<p className="mb-5 text-[18px] font-extrabold text-white">
@@ -229,8 +278,19 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						)}
 					</div>
 					<div className="bg-primary-800 mt-4 mr-6 flex h-9 items-center justify-center rounded-tl-3xl rounded-br-3xl p-4">
-						<SearchIcon />
+						<button
+							onClick={() => setIsSearchModalOpen(true)}
+							aria-label="Open search modal"
+						>
+							<SearchIcon />
+						</button>
 					</div>
+					<SearchModal
+						isOpen={isSearchModalOpen}
+						onClose={() => setIsSearchModalOpen(false)}
+						searchQuery={searchQuery}
+						setSearchQuery={setSearchQuery}
+					/>
 				</div>
 				<div className="flex flex-col items-center justify-center gap-6 lg:grid lg:grid-cols-3 lg:gap-6">
 					{posts?.results?.length &&
@@ -246,7 +306,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 				</div>
 			</div>
 			{/* Pagination controls */}
-			{/* <div className="mt-8 flex items-center justify-center gap-2">
+			<div className="mt-8 flex items-center justify-center gap-2">
 				<button
 					onClick={() => setPageIndex(Math.max(1, pageIndex - 1))}
 					disabled={pageIndex === 1}
@@ -298,7 +358,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						/>
 					</svg>
 				</button>
-			</div> */}
+			</div>
 		</div>
 	);
 };
