@@ -12,9 +12,10 @@ const Page = async ({
 	const loadSearchParams = createLoader({
 		category: parseAsString.withDefault(""),
 		page: parseAsString.withDefault("1"),
+		searchQuery: parseAsString.withDefault(""),
 	});
 
-	const { category, page } = await loadSearchParams(searchParams);
+	const { category, page, searchQuery } = await loadSearchParams(searchParams);
 
 	const categories = await Services.getBlogCategories();
 	const posts = await Services.getBlogPosts({
@@ -22,6 +23,7 @@ const Page = async ({
 			params: {
 				category_slug: category,
 				page: page,
+				title: searchQuery,
 			},
 		},
 	});

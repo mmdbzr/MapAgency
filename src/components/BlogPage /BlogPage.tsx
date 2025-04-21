@@ -26,6 +26,13 @@ const BlogPage: React.FC<BlogPageProps> = ({
 			shallow: false,
 		}),
 	);
+	const [searchQuery, setSearchQuery] = useQueryState(
+		"searchQuery",
+		parseAsString.withDefault("").withOptions({
+			clearOnDefault: true,
+			shallow: false,
+		}),
+	);
 	const [pageIndex, setPageIndex] = useQueryState(
 		"page",
 		parseAsIndex.withDefault(1),
@@ -150,7 +157,12 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						</div>
 					</div>
 					<div className="bg-secondary-500 mt-4 flex h-9 w-full items-center justify-end gap-2 rounded-3xl px-4">
-						<input className="w-full bg-transparent text-white outline-none placeholder:text-white/50" />
+						<input
+							className="w-full bg-transparent text-white outline-none placeholder:text-white/50"
+							onChange={(e) => {
+								setSearchQuery(e.target.value);
+							}}
+						/>
 						<SearchIcon />
 					</div>
 					<div className="mt-4 flex w-full flex-col">

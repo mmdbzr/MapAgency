@@ -1,7 +1,5 @@
 import React from "react";
 
-import Image from "next/image";
-
 import AutoSlider from "@/components/LandingPageComponents/AutoSlider";
 import ScrollBarImageSecivce from "@/components/LandingPageComponents/ScrollBarImageSecivce";
 import SvgQueueAnimation from "@/components/LandingPageComponents/SvgQueueAnimation";
@@ -15,17 +13,30 @@ import SteelIcon from "@/public/Landing/Steelazinnewlogo.svg";
 import TitleIcon from "@/public/Landing/Vector-9.svg";
 import ZobIcon from "@/public/Landing/Zob_Ahan_FC_Logo.svg.svg";
 import BlueLineIcon from "@/public/Line 3.svg";
+import Services from "@/services";
 
-const LandingPage = () => {
+const LandingPage = async () => {
+	const MainBanner = await Services.getMainBanner();
+
 	return (
 		<div className="mt-[94px] mb-14 h-max px-6 lg:mt-0 lg:px-0">
 			<section className="relative hidden h-[712px] lg:flex">
-				<Image
+				<video
+					src={
+						(process.env.NEXT_PUBLIC_API_URL ?? "") +
+						MainBanner?.home_video.download_url
+					}
+					autoPlay
+					loop
+					muted
+					className="absolute -z-20 h-full w-full object-cover"
+				/>
+				{/* <Image
 					src="/Landing/Frame 1000002393.png"
 					alt="LandingPageImage"
 					fill
 					className="absolute -z-20 h-full w-full object-cover"
-				/>
+				/> */}
 				<div className="absolute top-0 z-20 h-[712px] w-full bg-gradient-to-r from-[#144B65] from-[1.18%] to-transparent to-[86.01%] mix-blend-overlay" />
 
 				<TitleIcon className="absolute bottom-[180px] left-[225px] z-20" />

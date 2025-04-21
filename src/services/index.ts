@@ -49,11 +49,28 @@ const Services = {
 			>("/api/v1/products/categories/")
 			.then((res) => res.data),
 
+	getProductSpecifications: (id: number) =>
+		axiosInstance
+			.get<
+				ServicesResponse["getProductSpecifications"]
+			>(`/api/v1/product-specifications/?product_id=${id}`)
+			.then((res) => res.data),
+
 	getServices: () =>
 		axiosInstance
 			.get<ServicesResponse["getServices"]>(
 				`/api/v1/service-introductions/list/`,
 			)
+			.then((res) => res.data)
+			.catch((error) => {
+				console.log(" getServices error : ", error);
+				console.log("Request URL:", error.config?.url);
+				return null;
+			}),
+
+	getMainBanner: () =>
+		axiosInstance
+			.get<ServicesResponse["getMainBanner"]>(`/api/v1/mapagency/main-content/`)
 			.then((res) => res.data)
 			.catch((error) => {
 				console.log(" getServices error : ", error);

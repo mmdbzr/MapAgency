@@ -40,6 +40,10 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 	const [project, setProject] = useState<
 		ServicesResponse["getSingleProduct"] | null
 	>(null);
+	const [projectId, setProjectId] = useState<number | null>(null);
+	const [projectSpecification, setProjectSpecification] = useState<
+		ServicesResponse["getProductSpecifications"] | null
+	>(null);
 
 	console.log("slug : ", slug);
 
@@ -47,11 +51,9 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 		if (slug) {
 			Services.getSingleProduct(slug)
 				.then((project) => {
-					console.log(
-						"project modal gallery: ",
-						project?.gallery[0].download_url,
-					);
 					setProject(project);
+					setProjectId(project?.id ?? null);
+					console.log("iddd", projectId);
 				})
 				.catch((error) => {
 					console.log("error : ", error);
@@ -59,6 +61,20 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 				});
 		}
 	}, [slug]);
+
+	useEffect(() => {
+		if (projectId) {
+			Services.getProductSpecifications(projectId)
+				.then((data) => {
+					setProjectSpecification(data);
+					console.log("ps :", data);
+				})
+				.catch((error) => {
+					setProjectSpecification(null);
+					console.log(error);
+				});
+		}
+	}, [projectId]);
 
 	if (!slug) return null;
 
@@ -96,14 +112,17 @@ const ProjectModal = ({ slug, isOpen, onClose }: ProjectModalProps) => {
 							stiffness: 120,
 							duration: 0.5,
 						}}
-						className="bg-primary-900 lg:scrollbar-hide fixed top-1/2 left-1/2 z-50 h-[385px] w-[343px] max-w-4xl overflow-y-auto rounded-3xl border border-solid border-[#038BB7] p-6 lg:h-[728px] lg:w-[1904px]"
+						className="bg-primary-900 scrollbar-hide fixed top-1/2 left-1/2 z-50 h-[385px] w-[343px] max-w-4xl overflow-y-auto rounded-3xl border border-solid border-[#038BB7] p-6 lg:h-[728px] lg:w-[1904px]"
 					>
-						<div className="mb-6 flex items-center justify-between">
+						<div className="mb-2 flex items-center justify-between">
 							<h2 className="text-[14px] font-bold lg:text-2xl">
 								{project?.title}
 							</h2>
 							<CloseIcon onClick={onClose} />
 						</div>
+						<p className="text-secondary-main mb-4 text-[10px] lg:text-2xl">
+							{projectSpecification ? projectSpecification[0].value : ""}
+						</p>
 						<div className="flex flex-col gap-6">
 							<div className="relative w-full">
 								<div className="scrollbar-hide flex h-[95px] w-full gap-4 overflow-x-auto lg:h-[300px]">

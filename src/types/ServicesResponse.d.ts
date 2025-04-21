@@ -224,4 +224,17 @@ export interface ServicesResponse {
 		icon: string;
 		priority: number;
 	}>;
+	getMainBanner: {
+		home_video: {
+			id: number;
+			download_url: string;
+			title: string;
+			section: any | null;
+		};
+	};
+	getProductSpecifications: Array<{
+		id: number;
+		title: string;
+		value: string;
+	}>;
 }
