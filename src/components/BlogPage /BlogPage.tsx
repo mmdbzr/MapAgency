@@ -292,7 +292,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						setSearchQuery={setSearchQuery}
 					/>
 				</div>
-				<div className="flex flex-col items-center justify-center gap-6 lg:grid lg:grid-cols-3 lg:gap-6">
+				<div className="flex flex-col items-center justify-center gap-6 lg:grid lg:w-[860px] lg:grid-cols-3 lg:gap-6">
 					{posts?.results?.length &&
 						posts.results.map((post) => (
 							<BlogPost
