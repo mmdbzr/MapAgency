@@ -1,21 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 
 import BlogPost from "./BlogPost";
 import PopularPost from "./PopularPost";
 import { parseAsIndex, parseAsString, useQueryState } from "nuqs";
+import { useDebouncedCallback } from "use-debounce";
 
 import SearchIcon from "@/public/fi-rr-search.svg";
 import { ServicesResponse } from "@/types/ServicesResponse";
 import cn from "@/utils/cn";
 
+export interface BlogPageProps {
+	categories?: ServicesResponse["getBlogCategories"] | null;
+	posts?: ServicesResponse["getBlogPosts"] | null;
+}
+
+// COMP 1
 const SearchModal: React.FC<{
 	isOpen: boolean;
 	onClose: () => void;
 	searchQuery: string;
+	search: string;
+	setSearch: Dispatch<SetStateAction<string>>;
 	setSearchQuery: (value: string) => void;
-}> = ({ isOpen, onClose, searchQuery, setSearchQuery }) => {
+	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+}> = ({ isOpen, onClose, search, handleSearch, setSearch }) => {
 	if (!isOpen) return null;
 
 	return (
@@ -47,8 +57,11 @@ const SearchModal: React.FC<{
 					<input
 						className="w-full bg-transparent text-white outline-none placeholder:text-white/50"
 						aria-label="Search articles"
-						value={searchQuery}
-						onChange={(e) => setSearchQuery(e.target.value)}
+						value={search}
+						onChange={(e) => {
+							setSearch(e.target.value);
+							handleSearch(e);
+						}}
 						autoFocus
 					/>
 					<SearchIcon />
@@ -58,11 +71,7 @@ const SearchModal: React.FC<{
 	);
 };
 
-export interface BlogPageProps {
-	categories?: ServicesResponse["getBlogCategories"] | null;
-	posts?: ServicesResponse["getBlogPosts"] | null;
-}
-
+// COMP 2
 const BlogPage: React.FC<BlogPageProps> = ({
 	categories: categoriesData,
 	posts,
@@ -87,10 +96,15 @@ const BlogPage: React.FC<BlogPageProps> = ({
 	);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-
+	const handleSearchDebounced = useDebouncedCallback(
+		(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value),
+		1000,
+	);
 	const handleCheckboxChange = (key: string) => {
 		setCategory(key === categoryQueryState ? "" : key);
 	};
+
+	const [search, setSearch] = useState(searchQuery);
 
 	const totalPages = Math.ceil((posts?.count || 0) / 9);
 
@@ -209,8 +223,10 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						<input
 							className="w-full bg-transparent text-white outline-none placeholder:text-white/50"
 							onChange={(e) => {
-								setSearchQuery(e.target.value);
+								setSearch(e.target.value);
+								handleSearchDebounced(e);
 							}}
+							value={search}
 						/>
 						<SearchIcon />
 					</div>
@@ -281,15 +297,19 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						<button
 							onClick={() => setIsSearchModalOpen(true)}
 							aria-label="Open search modal"
+							value={searchQuery}
 						>
 							<SearchIcon />
 						</button>
 					</div>
 					<SearchModal
+						search={search}
 						isOpen={isSearchModalOpen}
 						onClose={() => setIsSearchModalOpen(false)}
 						searchQuery={searchQuery}
 						setSearchQuery={setSearchQuery}
+						handleSearch={handleSearchDebounced}
+						setSearch={setSearch}
 					/>
 				</div>
 				<div className="flex flex-col items-center justify-center gap-6 lg:grid lg:w-[860px] lg:grid-cols-3 lg:gap-6">
