@@ -105,8 +105,8 @@ const ContactUsPage = () => {
 								</p>
 							</div>
 							<p className="mt-2 text-base leading-[17.15px] font-light tracking-normal lg:mt-4 lg:text-[20px]">
-								تهران ،دزاشیب ، خیابان کبیری ساختمان دربند ، پلاک 52 ،واحد 1 و
-								2{" "}
+								تهران،تجريش، خيابان كبيري (دزاشيب)،ساختمان دربند، پلاك ٥٢ واحد ١
+								و ٢
 							</p>
 						</div>
 						<div>
@@ -117,7 +117,7 @@ const ContactUsPage = () => {
 								</p>
 							</div>
 							<p className="mt-2 text-base leading-[17.15px] font-light tracking-normal lg:text-[20px]">
-								021-22705061
+								٢-٢٢٧٠٥٠٦١{" "}
 							</p>
 						</div>
 					</div>

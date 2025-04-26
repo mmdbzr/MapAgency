@@ -26,38 +26,21 @@ export default function ScrollBarImageSecivce({
 		},
 		{
 			id: "2",
-			title: "تحلیل و تحقیقات بازار",
+			title: "مشاوره وبرنامه ريزى خريد رسانه",
 			description:
-				"شناسایی نیازها، رفتار مشتریان و وندهای بازار برای ایجاد تبلیغات هدفمند و بهینه‌سازی استراتژی‌های بازاریابی.",
-			imageUrl: "/Landing/mobile.png",
+				"ارائه راهكارهاى بهينه براى انتخاب و خريد رسانه هاى تبليغاتى باهدف دستيابى به بيشترين تاثير و بهترين بازدهى.",
+			imageUrl:
+				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-3.png",
 		},
 		{
 			id: "3",
-			title: "راه اندازی و پشتیبانی و بسایت",
+			title: "تحلیل و تحقیقات بازار",
 			description:
-				"طراحی، توسعه و مدیریت وب‌سایت‌های حرفه‌ای با ارائه خدمات پشتیبانی فنی برای تضمین عملکرد بهینه و بروزرسانی مستمر.",
-			imageUrl:
-				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-4.png",
+				"شناسایی نیازها، رفتار مشتریان و روندهای بازار برای ایجاد تبلیغات هدفمند و بهینه‌سازی استراتژی‌های بازاریابی.",
+			imageUrl: "/Landing/mobile.png",
 		},
 		{
 			id: "4",
-			title: "تحليل وآناليز گزارشات",
-
-			description:
-				"بررسى داده هاى تبليغاتى و عملكرد كميين ها براى ارزيابى موفقيت وارائه راهكارهاى بهبود.",
-			imageUrl:
-				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-6.png",
-		},
-		{
-			id: "5",
-			title: "توليد محتوا",
-			description:
-				"ايجاد محتواى خلاقانه وجذاب براى جذب مخاطب، افزايش تعامل وتقويت هويت برند در يلتفرم هاى مختلف.",
-			imageUrl:
-				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-5.png",
-		},
-		{
-			id: "6",
 			title: "تبلیغات دیجیتال",
 			description:
 				"اجراى كمپين هاى هدفمند در پلتفرم هاى آنلاين براى افزايش ديده شدن، جذب مشترى وبهبود بازدهى تبليغات،",
@@ -65,12 +48,29 @@ export default function ScrollBarImageSecivce({
 				"/Images/LandingScrollAssets/I want a photo, I don't want it to have any writing about analysis and report analysis.png",
 		},
 		{
-			id: "7",
-			title: "مشاوره وبرنامه ريزى خريد رسانه",
+			id: "5",
+			title: "توليد محتوا",
 			description:
-				"ارائه راهكارهاى بهينه براى انتخاب و خريد رسانه هاى تبليغاتى باهدف دستيابى به بيشترين تاثير و بهترين بازدهى.",
+				"ايجاد محتواى خلاقانه وجذاب براى جذب مخاطب، افزايش تعامل وتقويت هويت برند در پلتفرم هاى مختلف.",
 			imageUrl:
-				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-3.png",
+				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-5.png",
+		},
+		{
+			id: "6",
+			title: "راه اندازی و پشتیبانی و بسایت",
+			description:
+				"طراحی، توسعه و مدیریت وب‌سایت‌های حرفه‌ای با ارائه خدمات پشتیبانی فنی برای تضمین عملکرد بهینه و بروزرسانی مستمر.",
+			imageUrl:
+				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-4.png",
+		},
+		{
+			id: "7",
+			title: "تحليل وآناليز گزارشات",
+
+			description:
+				"بررسى داده هاى تبليغاتى و عملكرد كميين ها براى ارزيابى موفقيت وارائه راهكارهاى بهبود.",
+			imageUrl:
+				"/Images/LandingScrollAssets/I want a photo, I don't want it to have a text about creativity and idea generation-6.png",
 		},
 		{
 			id: "8",

@@ -123,11 +123,11 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
 										<p
 											className={cn(
 												"relative w-fit overflow-visible text-nowrap",
-												isActive && "text-secondary-main font-extrabold",
+												isActive && "font-extrabold text-[#0000FF]",
 											)}
 										>
 											{isActive && (
-												<div className="bg-secondary-main/50 absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 blur-[15px]" />
+												<div className="absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 bg-[#0000FF]/50 blur-[15px]" />
 											)}
 											{meta.label}
 										</p>
@@ -158,11 +158,11 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
 										<p
 											className={cn(
 												"relative w-fit overflow-visible text-nowrap text-white",
-												isActive && "text-secondary-main font-extrabold",
+												isActive && "font-extrabold text-[#0000FF]",
 											)}
 										>
 											{isActive && (
-												<div className="bg-secondary-main/50 absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 blur-[15px]" />
+												<div className="absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 bg-[#0000FF]/50 blur-[15px]" />
 											)}
 											{meta.label}
 										</p>
@@ -195,11 +195,11 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
 										<p
 											className={cn(
 												"relative w-fit overflow-visible text-nowrap",
-												isActive && "text-secondary-main font-extrabold",
+												isActive && "font-extrabold text-[#0000FF]",
 											)}
 										>
 											{isActive && (
-												<div className="bg-secondary-main/50 absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 blur-[15px]" />
+												<div className="absolute top-1/2 left-1/2 z-10 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 bg-[#0000FF]/50 blur-[15px]" />
 											)}
 											{meta.label}
 										</p>

@@ -21,7 +21,7 @@ const Footer: React.FC = (props) => {
 			<div className="bg-primary-800 bottom-0 flex h-[400px] w-full flex-col gap-4 p-4 lg:grid lg:max-h-[284px] lg:max-w-[1182px] lg:grid-cols-9 lg:justify-center lg:gap-x-6">
 				<div className="flex flex-col gap-2 lg:col-span-3 lg:p-4">
 					<FullLogoIcon className="lg:mt-6 lg:h-[47px] lg:w-[258px]" />
-					<p className="text-xs leading-5 lg:text-sm lg:leading-[27px] lg:font-normal lg:tracking-normal">
+					<p className="text-justify text-xs leading-5 lg:text-sm lg:leading-[27px] lg:font-normal lg:tracking-normal">
 						شرکت ما با تمرکز بر ارائه خدمات تبلیغاتی و بازاریابی خلاقانه، به
 						کسب‌وکارها کمک می‌کند تا حضور پررنگ‌تری در بازار داشته باشند. با
 						تیمی حرفه‌ای در زمینه تبلیغات محیطی، تولید محتوا، طراحی وب‌سایت و

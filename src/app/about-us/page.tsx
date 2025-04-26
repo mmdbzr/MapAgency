@@ -44,8 +44,7 @@ const page = () => {
 				<div className="lg:mr-44 lg:flex">
 					<div className="relative z-30 flex items-center">
 						<BlueLineIcon className="mr-14 h-20 w-2 lg:h-40" />
-						<p className="mr-4 text-[12px] leading-5 lg:w-[500px] lg:text-[23px] lg:leading-7">
-							در شرکت تبلیغات <span className="text-secondary-main">کیا</span>،
+						<p className="mr-4 text-justify text-[12px] leading-5 lg:w-[500px] lg:text-[23px] lg:leading-7">
 							ما به ساخت داستان‌هایی اعتقاد داریم که برند شما را به‌یادماندنی و
 							تاثیرگذار می‌سازند. با تیمی از متخصصان خلاق و کارشناسان حوزه
 							تبلیغات، ماموریت ما این است که برند شما را از رقبا متمایز کنیم.
@@ -84,7 +83,7 @@ const page = () => {
 				</div>
 				<div className="lg:flex lg:flex-row-reverse">
 					<div className="relative flex items-center lg:-right-20">
-						<p className="mr-4 text-[12px] leading-5 lg:mr-0 lg:text-[23px] lg:leading-7">
+						<p className="mr-4 text-justify text-[12px] leading-5 lg:mr-0 lg:ml-4 lg:text-[23px] lg:leading-7">
 							ما یک تیم چندرشته‌ای از طراحان، استراتژیست‌ها و تولیدکنندگان محتوا
 							داریم که هدف مشترک آن‌ها خلق تجربیات برند خاص و تأثیرگذار است.
 							اینجا می‌توانید با اعضای اصلی تیم آشنا شوید.
