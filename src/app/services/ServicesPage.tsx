@@ -93,10 +93,20 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
 									<h3 className="text-lg text-[14px] font-black lg:text-[43px]">
 										{service.title}
 									</h3>
-									<p className="mt-1 mb-2 text-[10px] leading-[14px] lg:mt-4 lg:mb-8 lg:text-[16px]">
-										{service.description}
-									</p>
-									<div className="grid grid-cols-2 gap-1.5 text-[10px] text-[#B7B7B7] lg:mt-12 lg:gap-y-5"></div>
+									<p
+										className="mt-1 mb-2 text-[10px] leading-[14px] lg:mt-4 lg:mb-8 lg:text-[16px]"
+										dangerouslySetInnerHTML={{ __html: service?.description }}
+									/>
+									<div className="font-peyda grid grid-cols-2 gap-1.5 text-white lg:mt-12 lg:gap-y-5">
+										{service.tags.map((tag, index) => (
+											<span key={index} className="flex items-center">
+												<span className="bg-secondary-main h-1 w-1 lg:h-3 lg:w-3" />
+												<p className="mr-1 text-[8px] lg:mr-4 lg:text-sm">
+													{tag}
+												</p>
+											</span>
+										))}
+									</div>
 								</div>
 								<div className="relative h-full w-[110px] lg:h-[350px] lg:w-[450px]">
 									<Image

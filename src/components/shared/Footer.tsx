@@ -34,11 +34,11 @@ const Footer: React.FC = (props) => {
 						<h2 className="mb-2 text-sm font-bold lg:mt-10 lg:flex lg:text-center lg:text-2xl lg:tracking-normal">
 							تماس با ما
 						</h2>
-						<p>تلفن : 22705061</p>
+						<p>تلفن : ٢-٢٢٧٠٥٠٦١</p>
 						<p>آدرس ایمیل : info@mapagency.co</p>
 						<p>
-							آدرس : تهران ،دزاشیب ، خیابان کبیری ساختمان دربند ، پلاک 52 ،واحد
-							1 و 2
+							آدرس : تهران،تجريش، خيابان كبيري (دزاشيب)،ساختمان دربند، پلاك ٥٢
+							واحد ١ و ٢
 						</p>
 					</div>
 					<div className="col-span-1 flex flex-col gap-2 text-xs leading-5 lg:w-[170px] lg:text-sm lg:leading-[18.2px] lg:font-normal">

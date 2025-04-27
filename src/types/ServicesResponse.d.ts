@@ -213,12 +213,13 @@ export interface ServicesResponse {
 				},
 			];
 		};
+		tags: Array<string>;
 		title: string;
 		title_fa: string;
-		title_en: string | null;
+		title_en: null;
 		description: string;
 		description_fa: string;
-		description_en: string | null;
+		description_en: null;
 		positions: string;
 		url: string;
 		icon: string;
