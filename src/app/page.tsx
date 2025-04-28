@@ -1,5 +1,6 @@
 import React from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import AutoSlider from "@/components/LandingPageComponents/AutoSlider";
@@ -116,6 +117,15 @@ const LandingPage = async () => {
 					<SepahanIcon className="absolute right-[-40px] bottom-[64px] h-[70px] w-[70px] lg:right-[250px] lg:bottom-0 lg:h-[99px] lg:w-[99px]" />
 					<PerspolisIcon className="absolute top-[45%] left-[70px] h-[70px] w-[70px] lg:top-[50%] lg:left-[0] lg:h-[99px] lg:w-[99px]" />
 					{/* <TractorIcon className="absolute top-[45%] left-[70px] h-[70px] w-[70px] lg:top-[50%] lg:left-[0] lg:h-[99px] lg:w-[99px]" /> */}
+					<div className="absolute bottom-[186px] h-[65px] w-[65px] lg:right-[260px] lg:bottom-[200px] lg:h-[80px] lg:w-[80px]">
+						<Image
+							src="/Landing/Tractor_Logo.png"
+							alt="Tractor"
+							fill
+							quality={100}
+							className="object-cover"
+						/>
+					</div>
 					<LigIcon className="absolute top-[210px] left-[180px] h-[170px] w-[170px] lg:top-[25%] lg:left-[30%] lg:h-[333.415px] lg:w-[306.147px]" />
 				</div>
 				<div className="lg:mt-44">
