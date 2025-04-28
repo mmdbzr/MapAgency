@@ -177,7 +177,7 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
 								window.location.href = APP_ROUTES.landing;
 							}}
 						>
-							<LogoIcon className="lg:h-9 lg:w-52" />
+							<LogoIcon className="lg:h-12 lg:w-56" />
 						</button>
 						<div className="hidden lg:flex lg:space-x-10">
 							{navigationItems.slice(midpoint).map(([path, meta]) => {

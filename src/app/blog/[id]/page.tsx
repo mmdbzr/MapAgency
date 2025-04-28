@@ -56,7 +56,7 @@ const BlogPostPage = async ({
 						<BackIcon />
 					</Link>
 				</div>
-				<div className="prose prose-lg mt-6">
+				<div className="prose prose-lg mt-6 text-justify">
 					<p dangerouslySetInnerHTML={{ __html: (post as any)?.text }} />
 				</div>
 			</article>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import Link from "next/link";
+
 import AutoSlider from "@/components/LandingPageComponents/AutoSlider";
 import ScrollBarImageSecivce from "@/components/LandingPageComponents/ScrollBarImageSecivce";
 import SvgQueueAnimation from "@/components/LandingPageComponents/SvgQueueAnimation";
@@ -10,8 +12,10 @@ import NaftIcon from "@/public/Landing/Logo.sev.svg.svg";
 import LigIcon from "@/public/Landing/Pictoor.com-Lige-Bartar-Khalij-Fars-scaled-1 3.svg";
 import SepahanIcon from "@/public/Landing/Sepahan_New_Logo.svg.svg";
 import SteelIcon from "@/public/Landing/Steelazinnewlogo.svg";
+// import TractorIcon from "@/public/Landing/Tractor_Logo (1).svg";
 import TitleIcon from "@/public/Landing/Vector-9.svg";
 import ZobIcon from "@/public/Landing/Zob_Ahan_FC_Logo.svg.svg";
+import PerspolisIcon from "@/public/Landing/fc-persepolis-seeklogo.svg";
 import BlueLineIcon from "@/public/Line 3.svg";
 import Services from "@/services";
 
@@ -77,9 +81,11 @@ const LandingPage = async () => {
 
 				<div className="flex flex-col items-center justify-center">
 					<BlueLineIcon className="mb-2" />
-					<RadiusButton className="lg:mt-8 lg:h-[70px] lg:w-[217px] lg:text-[14px] lg:font-black">
-						برای مشاهده تمامی خدمات
-					</RadiusButton>
+					<Link href="/services">
+						<RadiusButton className="lg:mt-8 lg:h-[70px] lg:w-[217px] lg:text-[14px] lg:font-black">
+							برای مشاهده تمامی خدمات
+						</RadiusButton>
+					</Link>
 				</div>
 			</section>
 			<section className="mt-[70px] lg:mt-28">
@@ -108,6 +114,8 @@ const LandingPage = async () => {
 					<ZobIcon className="absolute top-[143px] right-[99px] h-[58px] w-[64px] lg:top-[200px] lg:right-[450px] lg:h-[78px] lg:w-[78px]" />
 					<EsteghlalIcon className="absolute bottom-[186px] left-[132px] h-[76px] w-[69px] lg:bottom-[200px] lg:left-[90px] lg:h-[102px] lg:w-[78px]" />
 					<SepahanIcon className="absolute right-[-40px] bottom-[64px] h-[70px] w-[70px] lg:right-[250px] lg:bottom-0 lg:h-[99px] lg:w-[99px]" />
+					<PerspolisIcon className="absolute top-[45%] left-[70px] h-[70px] w-[70px] lg:top-[50%] lg:left-[0] lg:h-[99px] lg:w-[99px]" />
+					{/* <TractorIcon className="absolute top-[45%] left-[70px] h-[70px] w-[70px] lg:top-[50%] lg:left-[0] lg:h-[99px] lg:w-[99px]" /> */}
 					<LigIcon className="absolute top-[210px] left-[180px] h-[170px] w-[170px] lg:top-[25%] lg:left-[30%] lg:h-[333.415px] lg:w-[306.147px]" />
 				</div>
 				<div className="lg:mt-44">
@@ -116,11 +124,12 @@ const LandingPage = async () => {
 						<br />
 						<span className="text-secondary-main">رقابت‌های لیگ برتر</span>!
 					</p>
-					<p className="font-peyda text-[12px] leading-[20px] font-normal lg:mt-5 lg:h-[132px] lg:w-[526px] lg:text-right lg:text-[16px] lg:leading-[33px] lg:font-normal">
-						با شبکه‌ای گسترده از بیلبوردها و تبلیغات محیطی در سراسر کشور، پیام
-						برند شما به گوش همه می‌رسد. از کلان‌شهرهای پرتردد تا شهرستان‌های
-						کوچک، ما پوششی کامل ارائه می‌دهیم تا دیده شوید. نگاهی به نقشه
-						استان‌ها بیندازید؛ هر نقطه فرصتی برای ارتباط با مخاطبان جدید است!
+					<p className="font-peyda text-justify text-[12px] leading-[20px] font-normal lg:mt-5 lg:h-[132px] lg:w-[526px] lg:text-right lg:text-[16px] lg:leading-[33px] lg:font-normal">
+						لیگ برتر فوتبال ایران، به عنوان یکی از محبوب‌ترین و پربیننده‌ترین
+						رویدادهای ورزشی کشور، فرصت بی‌نظیری برای برندها و شرکت‌ها فراهم
+						می‌آورد تا به جمعیتی گسترده و متنوع دسترسی پیدا کنند. با تبلیغات در
+						لیگ برتر، شما می‌توانید برند خود را در معرض دید میلیون‌ها تماشاگر
+						قرار داده و تاثیرگذاری خود را به طور قابل توجهی افزایش دهید
 					</p>
 				</div>
 			</section>

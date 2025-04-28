@@ -10,13 +10,37 @@ import { ServicesResponse } from "@/types/ServicesResponse";
 
 // Variants for the child cards
 const childVariants = {
-	hidden: { x: -100, opacity: 0 }, // Start 100px to the left, fully transparent
+	hidden: { opacity: 0 },
 	show: {
-		x: 0,
-		opacity: 1, // Fully opaque when entering
+		opacity: 1,
 		transition: {
-			duration: 0.5, // Duration of each child's animation
-			ease: "easeInOut", // Smooth easing for a natural feel
+			duration: 0.5,
+			ease: "easeInOut",
+		},
+	},
+};
+
+const imageVariants = {
+	hidden: { opacity: 0, y: 20 },
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5,
+			ease: "easeInOut",
+		},
+	},
+};
+
+const textVariants = {
+	hidden: { opacity: 0, y: 20 },
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5,
+			delay: 0.3,
+			ease: "easeInOut",
 		},
 	},
 };
@@ -67,8 +91,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
 	return (
 		<div className="mt-[94px] h-min px-6 pb-16">
 			<section>
-				{/* Header Section */}
-				<div className="relative mt-[45px] mb-5 flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
+				<div className="relative mb-5 flex h-10 w-full flex-col items-center text-center lg:h-32">
 					<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 						Services
 					</p>
@@ -79,7 +102,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
 
 				{/* Services Section with Scroll Animation */}
 				<section className="flex w-full flex-col items-center justify-center">
-					<div className="grid w-full grid-cols-1 gap-x-8 gap-y-6 lg:my-40 lg:gap-y-20">
+					<div className="grid w-full grid-cols-1 gap-y-16 lg:my-40">
 						{services?.map((service, index) => (
 							<motion.div
 								key={index}
@@ -87,28 +110,12 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
 								whileInView="show"
 								viewport={{ once: true }}
 								variants={childVariants}
-								className="flex lg:pr-4"
+								className="flex w-full flex-col items-center"
 							>
-								<div className="font-peyda w-full px-1">
-									<h3 className="text-lg text-[14px] font-black lg:text-[43px]">
-										{service.title}
-									</h3>
-									<p
-										className="mt-1 mb-2 text-[10px] leading-[14px] lg:mt-4 lg:mb-8 lg:text-[16px]"
-										dangerouslySetInnerHTML={{ __html: service?.description }}
-									/>
-									<div className="font-peyda grid grid-cols-2 gap-1.5 text-white lg:mt-12 lg:gap-y-5">
-										{service.tags.map((tag, index) => (
-											<span key={index} className="flex items-center">
-												<span className="bg-secondary-main h-1 w-1 lg:h-3 lg:w-3" />
-												<p className="mr-1 text-[8px] lg:mr-4 lg:text-sm">
-													{tag}
-												</p>
-											</span>
-										))}
-									</div>
-								</div>
-								<div className="relative h-full w-[110px] lg:h-[350px] lg:w-[450px]">
+								<motion.div
+									variants={imageVariants}
+									className="relative h-[200px] w-full lg:h-[400px]"
+								>
 									<Image
 										src={
 											process.env.NEXT_PUBLIC_API_URL +
@@ -116,9 +123,34 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
 										}
 										alt={service.title}
 										fill
-										className="h-full w-full object-cover lg:h-[350px] lg:w-[450px]"
+										className="object-cover"
 									/>
-								</div>
+								</motion.div>
+								<motion.div
+									variants={textVariants}
+									className="font-peyda mt-6 w-full max-w-3xl px-4 text-center"
+								>
+									<h3 className="text-lg font-black lg:text-[43px]">
+										{service.title}
+									</h3>
+									<p
+										className="mt-4 text-[14px] leading-relaxed lg:text-[16px]"
+										dangerouslySetInnerHTML={{ __html: service?.description }}
+									/>
+									<div className="font-peyda mt-8 grid grid-cols-2 items-center justify-center gap-4 text-center lg:mt-12 lg:gap-y-5">
+										{service.tags.map((tag, index) => (
+											<span
+												key={index}
+												className="flex items-center justify-center"
+											>
+												<span className="bg-secondary-main h-1 w-1 lg:h-3 lg:w-3" />
+												<p className="mr-1 text-[12px] lg:mr-4 lg:text-sm">
+													{tag}
+												</p>
+											</span>
+										))}
+									</div>
+								</motion.div>
 							</motion.div>
 						))}
 					</div>
