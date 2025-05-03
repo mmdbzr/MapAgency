@@ -70,54 +70,75 @@ export default function AutoSlider({
 	return (
 		<div
 			className={cn(
-				"relative mx-auto h-[15.5rem] w-full max-w-5xl overflow-hidden rounded-lg",
+				"relative mx-auto w-full max-w-5xl overflow-hidden rounded-lg",
 				className,
 			)}
 		>
-			{/* Main slider */}
-			<div className="relative h-full w-full">
+			{/* Main slider with flex column layout */}
+			<div className="relative flex w-full flex-col">
 				<AnimatePresence mode="wait">
 					<motion.div
 						key={currentIndex}
-						initial={{ x: 50, opacity: 0 }}
-						animate={{ x: 0, opacity: 1 }}
-						exit={{ x: -100, opacity: 0 }}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
 						transition={{ type: "spring", stiffness: 100 }}
-						className="absolute inset-0 flex items-center justify-center"
+						className="flex flex-col items-center"
 					>
-						{/* Background image with Next.js Image component */}
-						<div className="absolute inset-0 -z-40">
+						{/* Background image container */}
+						<div className="relative h-[15.5rem] w-full overflow-hidden rounded-lg">
 							<Image
 								src={slides[currentIndex].backgroundImage || "/PrillBg.png"}
-								alt={`Background for ${slides[currentIndex]}`}
+								alt={`Background for slide ${slides[currentIndex].id}`}
 								fill
 								quality={100}
 								priority
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
 								className="object-cover object-center"
 							/>
+							<div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(16,53,77,0)_0%,#10354D_100%)] bg-cover"></div>
 						</div>
-						<div className="absolute -z-30 h-[249px] w-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(16,53,77,0)_0%,#10354D_100%)] bg-cover lg:h-full"></div>
 
-						{/* Foreground image with higher z-index */}
+						{/* Foreground image as caption below */}
 						<motion.div
-							initial={{ x: 50, opacity: 0 }}
-							animate={{ x: 0, opacity: 1 }}
-							transition={{ type: "spring", stiffness: 100 }}
-							className="absolute -z-20 flex h-full w-full items-center justify-center"
+							initial={{ y: 20, opacity: 0 }}
+							animate={{ y: 0, opacity: 1 }}
+							exit={{ y: -20, opacity: 0 }}
+							transition={{
+								type: "spring",
+								stiffness: 100,
+								delay: 0.1,
+							}}
+							className="mt-4 flex h-16 items-center justify-center"
 						>
-							<div className="relative h-[100px] w-[100px]">
+							<div className="relative h-12 w-32">
 								<Image
-									src={slides[currentIndex].foregroundImage}
-									alt={`Foreground for ${slides[currentIndex]}`}
+									src={
+										slides[currentIndex].foregroundImage || "/placeholder.svg"
+									}
+									alt={`Logo for slide ${slides[currentIndex].id}`}
 									fill
 									quality={100}
-									className="h-[72px] w-16 object-contain"
+									className="object-contain"
 								/>
 							</div>
 						</motion.div>
 					</motion.div>
 				</AnimatePresence>
+			</div>
+
+			{/* Optional: Slide indicators */}
+			<div className="mt-4 flex justify-center space-x-2">
+				{slides.map((_, index) => (
+					<button
+						key={index}
+						onClick={() => setCurrentIndex(index)}
+						className={`h-2 w-2 rounded-full transition-all ${
+							index === currentIndex ? "w-4 bg-blue-500" : "bg-gray-300"
+						}`}
+						aria-label={`Go to slide ${index + 1}`}
+					/>
+				))}
 			</div>
 		</div>
 	);

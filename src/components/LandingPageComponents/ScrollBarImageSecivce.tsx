@@ -86,7 +86,7 @@ export default function ScrollBarImageSecivce({
 	return (
 		<div className={cn("w-full", className)}>
 			<div className="relative">
-				<div className="scrollbar-hide overflow-x-auto pb-6">
+				<div className="overflow-x-auto pb-6">
 					<div className="flex space-x-4 px-4 md:px-6">
 						{items.map((item) => (
 							<div

@@ -24,8 +24,8 @@ const LandingPage = async () => {
 	const MainBanner = await Services.getMainBanner();
 
 	return (
-		<div className="mt-[94px] mb-14 h-max px-6 lg:mt-0 lg:px-0">
-			<section className="relative hidden h-[712px] lg:flex">
+		<div className="mb-14 h-max lg:mt-0">
+			<section className="relative flex h-[300px] lg:h-[712px]">
 				<video
 					src={
 						(process.env.NEXT_PUBLIC_API_URL ?? "") +
@@ -44,11 +44,11 @@ const LandingPage = async () => {
 				/> */}
 				<div className="absolute top-0 z-20 h-[712px] w-full bg-gradient-to-r from-[#144B65] from-[1.18%] to-transparent to-[86.01%] mix-blend-overlay" />
 
-				<TitleIcon className="absolute bottom-[180px] left-[225px] z-20" />
+				<TitleIcon className="absolute bottom-0 left-[40px] z-20 w-[200px] lg:bottom-[180px] lg:left-[225px] lg:w-[717px]" />
 			</section>
-			<section className="relative flex flex-col items-center justify-center lg:mt-14 lg:mr-20 lg:flex-row">
+			<section className="relative mt-8 flex flex-col items-center justify-center lg:mt-14 lg:mr-20 lg:flex-row">
 				<div className="absolute -right-[300px] h-[530px] w-[524px] rounded-full bg-[rgba(74,183,230,0.2)] blur-[150px]" />
-				<div className="text-center lg:text-start">
+				<div className="px-6 text-center lg:text-start">
 					<p className="font-peyda h-12 text-2xl leading-[100%] font-extrabold lg:text-[45px]">
 						با <span className="text-secondary-main">ما</span>، تبلیغ شما دیده
 						می‌شود
@@ -89,7 +89,7 @@ const LandingPage = async () => {
 					</Link>
 				</div>
 			</section>
-			<section className="mt-[70px] lg:mt-28">
+			<section className="mt-[70px] px-6 lg:mt-28">
 				<div className="flex flex-col items-center text-center">
 					{" "}
 					<p className="font-peyda h-12 text-[24px] leading-[100%] font-extrabold lg:h-[59px] lg:text-center lg:text-[45px] lg:leading-[58px] lg:font-black">
@@ -107,7 +107,7 @@ const LandingPage = async () => {
 
 				<SvgQueueAnimation />
 			</section>
-			<section className="mt-28 flex w-full flex-col lg:h-[900px] lg:flex-row lg:gap-x-[150px]">
+			<section className="mt-28 flex w-full flex-col px-6 lg:h-[900px] lg:flex-row lg:gap-x-[150px] lg:px-0">
 				<div className="relative h-[700px] lg:h-[900px] lg:w-[700px]">
 					<CircularIcon className="absolute left-[30px] -z-10 h-[600px] w-[600px] lg:top-0 lg:-right-[100px] lg:block lg:h-[834.78px] lg:w-[834.78px]" />
 					<NaftIcon className="absolute top-[26px] h-[60px] w-[60px] lg:top-[30px] lg:right-[260px] lg:h-[99px] lg:w-[99px]" />
@@ -128,7 +128,7 @@ const LandingPage = async () => {
 					</div>
 					<LigIcon className="absolute top-[210px] left-[180px] h-[170px] w-[170px] lg:top-[25%] lg:left-[30%] lg:h-[333.415px] lg:w-[306.147px]" />
 				</div>
-				<div className="lg:mt-44">
+				<div className="px-6 lg:mt-44">
 					<p className="font-peyda text-[24px] leading-[40px] font-extrabold lg:h-[118px] lg:w-[526px] lg:text-right lg:text-[45px] lg:leading-[58px] lg:font-black">
 						تبلیغات شما، در قلب
 						<br />
