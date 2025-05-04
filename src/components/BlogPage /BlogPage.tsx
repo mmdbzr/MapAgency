@@ -1,6 +1,12 @@
 "use client";
 
-import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import type React from "react";
+import {
+	type ChangeEvent,
+	type Dispatch,
+	type SetStateAction,
+	useState,
+} from "react";
 
 import BlogPost from "./BlogPost";
 import PopularPost from "./PopularPost";
@@ -8,7 +14,7 @@ import { parseAsIndex, parseAsString, useQueryState } from "nuqs";
 import { useDebouncedCallback } from "use-debounce";
 
 import SearchIcon from "@/public/fi-rr-search.svg";
-import { ServicesResponse } from "@/types/ServicesResponse";
+import type { ServicesResponse } from "@/types/ServicesResponse";
 import cn from "@/utils/cn";
 
 export interface BlogPageProps {
@@ -106,92 +112,93 @@ const BlogPage: React.FC<BlogPageProps> = ({
 
 	const [search, setSearch] = useState(searchQuery);
 
-	const totalPages = Math.ceil((posts?.count || 0) / 9);
+	// Changed from 9 to 6 posts per page
+	const POSTS_PER_PAGE = 6;
+	const totalPages = Math.ceil((posts?.count || 0) / POSTS_PER_PAGE);
+
+	// Handle page change with direct value instead of using event
+	const handlePageChange = (page: number) => {
+		setPageIndex(page);
+	};
 
 	const renderPageNumbers = () => {
 		const pages = [];
 
-		if (totalPages <= 4) {
-			// Show all pages if total pages is 4 or less
-			for (let i = 1; i <= totalPages; i++) {
-				pages.push(
-					<button
-						key={i}
-						onClick={() => setPageIndex(i)}
-						className={cn(
-							"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
-							pageIndex === i
-								? "border-2 border-white bg-transparent text-white"
-								: "bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
-						)}
-					>
-						{i}
-					</button>,
-				);
-			}
-		} else {
-			// Show current page, previous page, and last two pages with ellipsis
-			if (pageIndex > 1) {
-				pages.push(
-					<button
-						key={pageIndex - 1}
-						onClick={() => setPageIndex(pageIndex - 1)}
-						className={cn(
-							"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
-							"bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
-						)}
-					>
-						{pageIndex - 1}
-					</button>,
-				);
-			}
-
-			pages.push(
-				<button
-					key={pageIndex}
-					onClick={() => setPageIndex(pageIndex)}
-					className={cn(
-						"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
-						"border-2 border-white bg-transparent text-white",
-					)}
-				>
-					{pageIndex}
-				</button>,
-			);
-
-			pages.push(
-				<span key="ellipsis" className="px-2 text-white">
-					...
-				</span>,
-			);
-
-			// Add last two pages
-			pages.push(
-				<button
-					key={totalPages - 1}
-					onClick={() => setPageIndex(totalPages - 1)}
-					className={cn(
-						"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
-						"bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
-					)}
-				>
-					{totalPages - 1}
-				</button>,
-			);
-
+		// Always show last page if there's more than one page (for RTL)
+		if (totalPages > 1) {
 			pages.push(
 				<button
 					key={totalPages}
-					onClick={() => setPageIndex(totalPages)}
+					onClick={() => handlePageChange(totalPages)}
 					className={cn(
 						"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
-						"bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
+						pageIndex === totalPages
+							? "border-2 border-white bg-transparent text-white"
+							: "bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
 					)}
 				>
 					{totalPages}
 				</button>,
 			);
 		}
+
+		// Add ellipsis if needed (for RTL)
+		if (pageIndex < totalPages - 2) {
+			pages.push(
+				<span key="ellipsis-end" className="px-2 text-white">
+					...
+				</span>,
+			);
+		}
+
+		// Add pages around current page (for RTL - reversed order)
+		for (
+			let i = Math.min(totalPages - 1, pageIndex + 1);
+			i >= Math.max(2, pageIndex - 1);
+			i--
+		) {
+			if (i === 1 || i === totalPages) continue; // Skip first and last page as they're handled separately
+
+			pages.push(
+				<button
+					key={i}
+					onClick={() => handlePageChange(i)}
+					className={cn(
+						"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
+						pageIndex === i
+							? "border-2 border-white bg-transparent text-white"
+							: "bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
+					)}
+				>
+					{i}
+				</button>,
+			);
+		}
+
+		// Add ellipsis if needed (for RTL)
+		if (pageIndex > 3) {
+			pages.push(
+				<span key="ellipsis-start" className="px-2 text-white">
+					...
+				</span>,
+			);
+		}
+
+		// Always show first page (for RTL)
+		pages.push(
+			<button
+				key={1}
+				onClick={() => handlePageChange(1)}
+				className={cn(
+					"flex h-12 w-12 items-center justify-center rounded-lg text-lg transition-colors",
+					pageIndex === 1
+						? "border-2 border-white bg-transparent text-white"
+						: "bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
+				)}
+			>
+				1
+			</button>,
+		);
 
 		return pages;
 	};
@@ -259,9 +266,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 						>
 							برچسب ها
 							<svg
-								className={`h-5 w-5 transform transition-transform duration-200 ${
-									isOpen ? "rotate-180" : ""
-								}`}
+								className={`h-5 w-5 transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"
@@ -314,48 +319,26 @@ const BlogPage: React.FC<BlogPageProps> = ({
 				</div>
 				<div className="flex flex-col items-center justify-center gap-6 lg:grid lg:w-[860px] lg:grid-cols-3 lg:gap-6">
 					{posts?.results?.length &&
-						posts.results.map((post) => (
-							<BlogPost
-								key={post.id}
-								title={post.title}
-								id={post.id}
-								description={post.short_description}
-								image={post.pictures || ""}
-							/>
-						))}
+						posts.results
+							.slice(
+								(pageIndex - 1) * POSTS_PER_PAGE,
+								pageIndex * POSTS_PER_PAGE,
+							)
+							.map((post) => (
+								<BlogPost
+									key={post.id}
+									title={post.title}
+									id={post.id}
+									description={post.short_description}
+									image={post.pictures || ""}
+								/>
+							))}
 				</div>
 			</div>
 			{/* Pagination controls */}
 			<div className="mt-8 flex items-center justify-center gap-2">
 				<button
-					onClick={() => setPageIndex(Math.max(1, pageIndex - 1))}
-					disabled={pageIndex === 1}
-					className={cn(
-						"flex h-12 w-12 items-center justify-center rounded-lg transition-colors",
-						pageIndex === 1
-							? "bg-gray-400 text-white opacity-50"
-							: "bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
-					)}
-				>
-					<svg
-						className="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M15 19l-7-7 7-7"
-						/>
-					</svg>
-				</button>
-
-				{renderPageNumbers()}
-
-				<button
-					onClick={() => setPageIndex(Math.min(totalPages, pageIndex + 1))}
+					onClick={() => handlePageChange(Math.min(totalPages, pageIndex + 1))}
 					disabled={pageIndex === totalPages}
 					className={cn(
 						"flex h-12 w-12 items-center justify-center rounded-lg transition-colors",
@@ -375,6 +358,33 @@ const BlogPage: React.FC<BlogPageProps> = ({
 							strokeLinejoin="round"
 							strokeWidth={2}
 							d="M9 5l7 7-7 7"
+						/>
+					</svg>
+				</button>
+
+				{renderPageNumbers()}
+
+				<button
+					onClick={() => handlePageChange(Math.max(1, pageIndex - 1))}
+					disabled={pageIndex === 1}
+					className={cn(
+						"flex h-12 w-12 items-center justify-center rounded-lg transition-colors",
+						pageIndex === 1
+							? "bg-gray-400 text-white opacity-50"
+							: "bg-[#1E4E6A] text-white hover:bg-[#1E4E6A]/80",
+					)}
+				>
+					<svg
+						className="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M15 19l-7-7 7-7"
 						/>
 					</svg>
 				</button>
