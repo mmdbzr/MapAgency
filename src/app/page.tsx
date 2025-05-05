@@ -50,13 +50,16 @@ const LandingPage = async () => {
 				<div className="absolute -right-[300px] h-[530px] w-[524px] rounded-full bg-[rgba(74,183,230,0.2)] blur-[150px]" />
 				<div className="px-6 text-center lg:text-start">
 					<p className="font-peyda h-12 text-2xl leading-[100%] font-extrabold lg:text-[45px]">
-						با <span className="text-secondary-main">ما</span>، تبلیغ شما دیده
-						می‌شود
+						شرکت{" "}
+						<span className="text-secondary-main">
+							مسیر بازاریابی و تبلیغات
+						</span>
 					</p>
 					<p className="font-peyda text-[12px] leading-[20px] font-normal lg:order-1 lg:mt-2 lg:h-[66px] lg:w-[661px] lg:flex-none lg:flex-grow-0 lg:self-stretch lg:text-right lg:text-[16px] lg:leading-[33px] lg:text-[#F4F5F9]">
-						در دنیایی که هر لحظه هزاران پیام تبلیغاتی دیده و شنیده می‌شود، ما
-						تضمین می‌کنیم که صدای برند شما به درستی شنیده شود. خلاقیت، استراتژی
-						و اجرا؛ هر آنچه برای موفقیت تبلیغات نیاز دارید، در کنار شما هستیم.
+						در مسیر رشد کسب‌و‌کارتان تنها نیستید. ما در مسیردرست، با ترکیب
+						خلاقیت، داده‌محوری و استراتژی‌های نوین بازاریابی، به شما کمک می‌کنیم
+						دیده شوید، رشد کنید و متمایز بمانید. همراه شماییم، از اولین قدم تا
+						رسیدن به قله.
 					</p>
 				</div>
 
@@ -129,10 +132,12 @@ const LandingPage = async () => {
 					<LigIcon className="absolute top-[210px] left-[180px] h-[170px] w-[170px] lg:top-[25%] lg:left-[30%] lg:h-[333.415px] lg:w-[306.147px]" />
 				</div>
 				<div className="px-6 lg:mt-44">
-					<p className="font-peyda text-[24px] leading-[40px] font-extrabold lg:h-[118px] lg:w-[526px] lg:text-right lg:text-[45px] lg:leading-[58px] lg:font-black">
-						تبلیغات شما، در قلب
-						<br />
-						<span className="text-secondary-main">رقابت‌های لیگ برتر</span>!
+					<p className="font-peyda text-[24px] leading-[40px] font-extrabold lg:h-[118px] lg:text-right lg:text-[45px] lg:leading-[58px] lg:font-black">
+						تبلیغات شما،
+						<span className="text-secondary-main">
+							در قلب رقابت‌های لیگ برتر{" "}
+						</span>
+						!
 					</p>
 					<p className="font-peyda text-justify text-[12px] leading-[20px] font-normal lg:mt-5 lg:h-[132px] lg:w-[526px] lg:text-right lg:text-[16px] lg:leading-[33px] lg:font-normal">
 						لیگ برتر فوتبال ایران، به عنوان یکی از محبوب‌ترین و پربیننده‌ترین
@@ -148,11 +153,11 @@ const LandingPage = async () => {
 					<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 						Our Achievements at a Glance{" "}
 					</p>
-					<p className="font-kaaf absolute top-2 text-center text-base text-[#b7b7b7] lg:top-12 lg:text-[40px] lg:leading-[78.57px] lg:text-white">
+					<p className="font-kaaf absolute top-5 text-center text-base text-[#b7b7b7] lg:top-[70px] lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 						افتخارات ما در یک نگاه{" "}
 					</p>
 				</div>
-				<div className="flex flex-wrap justify-center gap-x-12 gap-y-8">
+				<div className="lg: mt-3 flex flex-wrap justify-center gap-x-12 gap-y-8">
 					<div>
 						<p className="font-peyda text-secondary-main text-center text-[32px] leading-[42px] font-black lg:text-[60px] lg:leading-[78px]">
 							10+

@@ -104,7 +104,7 @@ const ContactUsPage = () => {
 									آدرس{" "}
 								</p>
 							</div>
-							<p className="mt-2 text-base leading-[17.15px] font-light tracking-normal lg:mt-4 lg:text-[20px]">
+							<p className="mt-2 text-base leading-8 font-light tracking-normal lg:mt-4 lg:text-[20px]">
 								تهران،تجريش، خيابان كبيري (دزاشيب)،ساختمان دربند، پلاك ٥٢ واحد ١
 								و ٢
 							</p>
