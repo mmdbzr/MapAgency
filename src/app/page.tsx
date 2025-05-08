@@ -25,7 +25,7 @@ const LandingPage = async () => {
 
 	return (
 		<div className="mb-14 h-max lg:mt-0">
-			<section className="relative flex h-[300px] lg:h-[712px]">
+			<section className="relative mt-[60px] flex h-[300px] lg:mt-[70px] lg:h-[712px]">
 				<video
 					src={
 						(process.env.NEXT_PUBLIC_API_URL ?? "") +
