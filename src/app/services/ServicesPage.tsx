@@ -92,9 +92,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
 		<div className="mt-[94px] h-min px-6 pb-16">
 			<section>
 				<div className="relative mb-5 flex h-10 w-full flex-col items-center text-center lg:h-32">
-					<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
+					{/* <p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 						Services
-					</p>
+					</p> */}
 					<p className="font-kaaf absolute top-3 text-center text-base text-[#b7b7b7] lg:top-9 lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 						خدمات
 					</p>

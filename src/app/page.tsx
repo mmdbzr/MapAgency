@@ -14,7 +14,6 @@ import LigIcon from "@/public/Landing/Pictoor.com-Lige-Bartar-Khalij-Fars-scaled
 import SepahanIcon from "@/public/Landing/Sepahan_New_Logo.svg.svg";
 import SteelIcon from "@/public/Landing/Steelazinnewlogo.svg";
 // import TractorIcon from "@/public/Landing/Tractor_Logo (1).svg";
-import TitleIcon from "@/public/Landing/Vector-9.svg";
 import ZobIcon from "@/public/Landing/Zob_Ahan_FC_Logo.svg.svg";
 import PerspolisIcon from "@/public/Landing/fc-persepolis-seeklogo.svg";
 import BlueLineIcon from "@/public/Line 3.svg";
@@ -44,7 +43,7 @@ const LandingPage = async () => {
 				/> */}
 				{/* <div className="absolute top-0 z-20 h-[712px] w-full bg-gradient-to-r from-[#144B65] from-[1.18%] to-transparent to-[86.01%] mix-blend-overlay" /> */}
 
-				<TitleIcon className="absolute bottom-0 left-[40px] z-20 w-[200px] lg:bottom-[180px] lg:left-[225px] lg:w-[717px]" />
+				{/* <TitleIcon className="absolute bottom-0 left-[40px] z-20 w-[200px] lg:bottom-[180px] lg:left-[225px] lg:w-[717px]" /> */}
 			</section>
 			<section className="relative mt-8 flex flex-col items-center justify-center lg:mt-14 lg:mr-20 lg:flex-row">
 				<div className="absolute -right-[300px] h-[530px] w-[524px] rounded-full bg-[rgba(74,183,230,0.2)] blur-[150px]" />
@@ -150,9 +149,9 @@ const LandingPage = async () => {
 			</section>
 			<section className="mt-14 flex flex-col items-center">
 				<div className="relative -z-10 mt-[45px] flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
-					<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
+					{/* <p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 						Our Achievements at a Glance{" "}
-					</p>
+					</p> */}
 					<p className="font-kaaf absolute top-5 text-center text-base text-[#b7b7b7] lg:top-[70px] lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 						افتخارات ما در یک نگاه{" "}
 					</p>
