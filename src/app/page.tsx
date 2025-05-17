@@ -26,16 +26,17 @@ const LandingPage = async () => {
 		<div className="mb-14 h-max lg:mt-0">
 			<section className="relative mt-[60px] flex h-[300px] lg:mt-[70px] lg:h-[712px]">
 				<video
-					src={
-						(process.env.NEXT_PUBLIC_API_URL ?? "") +
-						MainBanner?.home_video.download_url
-					}
 					autoPlay
 					loop
 					muted
 					playsInline
 					className="absolute -z-20 h-full w-full object-cover"
-				/>
+				>
+					<source
+						src={`${process.env.NEXT_PUBLIC_API_URL ?? ""}${MainBanner?.home_video.download_url}`}
+						type="video/mp4"
+					/>
+				</video>
 				{/* <Image
 					src="/Landing/Frame 1000002393.png"
 					alt="LandingPageImage"
