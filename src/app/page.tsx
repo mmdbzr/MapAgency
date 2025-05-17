@@ -33,6 +33,7 @@ const LandingPage = async () => {
 					autoPlay
 					loop
 					muted
+					playsInline
 					className="absolute -z-20 h-full w-full object-cover"
 				/>
 				{/* <Image
@@ -131,12 +132,12 @@ const LandingPage = async () => {
 					<LigIcon className="absolute top-[210px] left-[180px] h-[170px] w-[170px] lg:top-[25%] lg:left-[30%] lg:h-[333.415px] lg:w-[306.147px]" />
 				</div>
 				<div className="px-6 lg:mt-44">
-					<p className="font-peyda text-[24px] leading-[40px] font-extrabold lg:h-[118px] lg:text-right lg:text-[45px] lg:leading-[58px] lg:font-black">
+					<p className="font-peyda text-justify text-[24px] leading-[40px] font-extrabold lg:h-[118px] lg:text-right lg:text-[45px] lg:leading-[58px] lg:font-black">
 						تبلیغات شما،
-						<span className="text-secondary-main">
+						<span className="text-secondary-main text-justify">
 							در قلب رقابت‌های لیگ برتر{" "}
 						</span>
-						!
+						.
 					</p>
 					<p className="font-peyda text-justify text-[12px] leading-[20px] font-normal lg:mt-5 lg:h-[132px] lg:w-[526px] lg:text-right lg:text-[16px] lg:leading-[33px] lg:font-normal">
 						لیگ برتر فوتبال ایران، به عنوان یکی از محبوب‌ترین و پربیننده‌ترین
