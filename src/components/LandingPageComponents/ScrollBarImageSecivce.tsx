@@ -43,7 +43,7 @@ export default function ScrollBarImageSecivce({
 			id: "4",
 			title: "تبلیغات دیجیتال",
 			description:
-				"اجراى كمپين هاى هدفمند در پلتفرم هاى آنلاين براى افزايش ديده شدن، جذب مشترى وبهبود بازدهى تبليغات،",
+				"اجراى كمپين هاى هدفمند در پلتفرم هاى آنلاين براى افزايش ديده شدن، جذب مشترى وبهبود بازدهى تبليغات.",
 			imageUrl:
 				"/Images/LandingScrollAssets/I want a photo, I don't want it to have any writing about analysis and report analysis.png",
 		},
