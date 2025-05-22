@@ -274,9 +274,9 @@ export default function ProjectPage({ project, categories }: ProjectPageProps) {
 	return (
 		<div className="mt-[96px] h-full min-h-[calc(100vh-96px)] px-6 pb-12 lg:px-[117px]">
 			<div className="relative -z-10 mt-[45px] flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
-				{/* <p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
+				<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 					Showcase of Recent Works
-				</p> */}
+				</p>
 				<p className="font-kaaf absolute top-2 text-center text-base text-[#b7b7b7] lg:top-9 lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 					جدیدترین کمپین‌ها و پروژه‌ها
 				</p>

@@ -206,9 +206,9 @@ const BlogPage: React.FC<BlogPageProps> = ({
 	return (
 		<div className={cn("mt-[96px] mb-16")}>
 			<div className="relative mb-5 flex h-10 w-full flex-col items-center text-center lg:h-32">
-				{/* <p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
+				<p className="font-kaaf absolute text-base font-bold lg:text-6xl lg:leading-[113.93px] lg:text-[#144B65]">
 					Articles
-				</p> */}
+				</p>
 				<p className="font-kaaf absolute top-3 text-center text-base text-[#b7b7b7] lg:top-9 lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 					مقالات
 				</p>

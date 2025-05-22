@@ -53,9 +53,9 @@ const ContactUsPage = () => {
 	return (
 		<div className="mt-[56px] flex flex-col items-center px-6 pb-8">
 			<div className="relative -z-10 mt-[45px] flex h-10 w-full flex-col items-center text-center lg:mt-[73px] lg:h-32">
-				{/* <p className="font-kaaf absolute text-base font-bold lg:text-[58px] lg:leading-[113.93px] lg:text-[#144B65]">
+				<p className="font-kaaf absolute text-base font-bold lg:text-[58px] lg:leading-[113.93px] lg:text-[#144B65]">
 					Contact us
-				</p> */}
+				</p>
 				<p className="font-kaaf absolute top-2 text-center text-base text-[#b7b7b7] lg:top-9 lg:text-[40px] lg:leading-[78.57px] lg:text-white">
 					تماس با ما
 				</p>
