@@ -31,9 +31,9 @@ const page = () => {
 			</div>
 			<section className="mt-7">
 				<div className="relative -right-2 flex w-[140px] flex-col items-center justify-center text-center lg:-bottom-16 lg:mr-[50px] lg:w-[418px]">
-					{/* <p className="font-kaaf text-secondary-main flex items-center text-[20px] font-black lg:text-6xl lg:opacity-50">
+					<p className="font-kaaf text-secondary-main flex items-center text-[20px] font-black lg:text-6xl lg:opacity-50">
 						!? Who We Are{" "}
-					</p> */}
+					</p>
 					<p className="lg:text-secondary-main flex items-center text-[16px] font-black lg:text-[44px]">
 						ما کی{" "}
 					</p>
@@ -75,9 +75,9 @@ const page = () => {
 			</section>
 			<section className="mt-7">
 				<div className="relative right-[220px] flex w-[93px] flex-col items-center text-center lg:right-[1250px] lg:-bottom-16 lg:w-72">
-					{/* <p className="font-kaaf text-secondary-main flex items-center text-[20px] font-black lg:text-6xl lg:opacity-50">
+					<p className="font-kaaf text-secondary-main flex items-center text-[20px] font-black lg:text-6xl lg:opacity-50">
 						Our Team
-					</p> */}
+					</p>
 					<p className="lg:text-secondary-main flex items-center text-[16px] font-black lg:text-[44px]">
 						تیم ما
 					</p>
@@ -108,9 +108,9 @@ const page = () => {
 			</section>
 			<section className="mt-12">
 				<div className="font-kaaf flex flex-col text-center font-black">
-					{/* <p className="text-[20px] text-[#C4C4C7] lg:text-6xl lg:text-[#144B65]">
+					<p className="text-[20px] text-[#C4C4C7] lg:text-6xl lg:text-[#144B65]">
 						? Think We`d Be a Good Match{" "}
-					</p> */}
+					</p>
 					<p className="relative -top-3 text-[16px] lg:text-5xl">
 						آیا فکر می‌کنید می‌توانیم همکاری خوبی داشته باشیم؟
 					</p>
