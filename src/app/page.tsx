@@ -38,10 +38,10 @@ const LandingPage = () => {
 						src={`${process.env.NEXT_PUBLIC_API_URL ?? ""}${MainBanner?.home_video.download_url}`}
 						type="video/mp4"
 					/> */}
-					<source
+					{/* <source
 						src="/Landing/7021938_Business_Brainstorming_3840x2160.mov"
 						type="video/mp4"
-					/>
+					/> */}
 				</video>
 				{/* <Image
 					src="/Landing/Frame 1000002393.png"
