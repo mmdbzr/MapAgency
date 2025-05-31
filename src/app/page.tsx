@@ -40,13 +40,13 @@ const LandingPage = () => {
 					/> */}
 					<source src="/7688003-hd_1280_720_30fps.mp4" type="video/mp4" />
 				</video>
-				<Image
+				{/* <Image
 					src="/Landing/Frame 1000002393.png"
 					alt="LandingPageImage"
 					fill
 					className="absolute -z-20 h-full w-full object-cover"
-				/>
-				{/* <div className="absolute top-0 z-20 h-[712px] w-full bg-gradient-to-r from-[#144B65] from-[1.18%] to-transparent to-[86.01%] mix-blend-overlay" /> */}
+				/> */}
+				<div className="absolute top-0 z-20 h-[712px] w-full bg-gradient-to-r from-[#144B65] from-[1.18%] to-transparent to-[86.01%] mix-blend-overlay" />
 
 				<TitleIcon className="absolute bottom-0 left-[40px] z-20 w-[200px] lg:bottom-[180px] lg:left-[225px] lg:w-[717px]" />
 			</section>
